@@ -1,1 +1,7 @@
-<p>product-detail works!</p>
+<div *ngFor="let item of productList">
+    <p>{{ item.name }}</p>
+    <p>{{ item.price }}</p>
+    <p>{{ item.description }}</p>
+    <p>{{ item.company }}</p>
+
+</div>
