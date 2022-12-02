@@ -8,15 +8,20 @@ import { CartService } from '../services/cart.service';
   styleUrls: ['./cart.component.scss']
 })
 export class CartComponent implements OnInit {
-  private cartItems: Cart[] = [];
+  cartItems: Cart[] = [];
 
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
+    this.getCartItems();
   }
 
   getCartItems(){
     this.cartItems = this.cartService.getCart();
+  }
+
+  removeItemFromCart(id: number){
+    this.cartService.removeFromCart(id);
   }
 
 }
