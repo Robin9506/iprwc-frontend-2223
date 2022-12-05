@@ -1,16 +1,32 @@
-<div  class="flex justify-center space-x-12 mt-5" >
-    <div class="rounded-lg shadow-xl bg-white max-w-sm" *ngFor="let item of productList">
-        <a href="#!">
-          <img class="rounded-t-lg" src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" alt=""/>
-        </a>
-        <div class="p-6">
-          <h5 class="text-gray-900 text-3xl font-medium mb-5"> {{item.name}}</h5>
-          <p class="text-gray-700 text-base mb-4">
-            {{item.description}}
-          </p>
-          <p class="">{{item.price}}</p>
-          <button (click)="addProductToCart(item)">+</button>
+<div  class="flex justify-center mt-12 mb-12 ml-12" >
+    <div class="grid grid-cols-2 gap-x-24 gap-y-12 ml-80"> 
+      <div class="shadow-xl bg-white max-w-xl h-64 flex justify-center" *ngFor="let item of productList">
+        <div class="h-full w-6/12">
+          <a href="#!">
+            <img class="h-full w-full" src="https://mdbootstrap.com/img/new/standard/nature/184.jpg" alt=""/>
+          </a>
         </div>
-    </div>
+        <div class="w-full">
+          <div class="p-6">
+            <h5 class="text-gray-900 text-3xl font-medium mb-5"> 
+              {{item.name}}
+            </h5>
+            <hr>
+            <p class="text-gray-700 text-base mb-4">
+              {{item.description}}
+            </p>
+            <p class="">
+              {{item.price}}
+            </p>
+            <button (click)="addProductToCart(item)" class="w-8 h-8">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="text-green-800">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>          
+            </button>
+        </div>
+        </div>
+          
+      </div>
+  </div>
 </div>
 
