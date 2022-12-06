@@ -7,7 +7,7 @@ import { Product } from '../models/product.model';
 export class ProductService {
     private products: Product[] = [
         new Product("Animal Crossing", 49.99, "dieren steken over!", "Nintendo", "../../../assets/ac.jpg", 4),
-        new Product("Mario Kart 8 Deluxe", 79.99, "Racen maar hoger!", "Nintendo", "../../../assets/marioKart8.jpg", 5),
+        new Product("Mario Kart 8 Deluxe", 79.99, "Racen maar hoger!", "Nintendo", "../../../assets/marioKart8.jpg", 4),
         new Product("Super Mario Party", 39.99, "Feesten!", "Nintendo", "../../../assets/smp.jpg", 2),
         new Product("Mario Party Allstars", 51.99, "Feesten again!", "Nintendo", "../../../assets/mps.jpg", 4),
         new Product("Xenoblade Chronicles", 39.99, "De toekomst!", "Monolith Soft", "../../../assets/xc1.jpg", 5),

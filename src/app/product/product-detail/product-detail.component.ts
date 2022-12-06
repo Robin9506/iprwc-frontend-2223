@@ -24,4 +24,8 @@ export class ProductDetailComponent implements OnInit {
     return Array(item.rating);
   }
 
+  getNonRating(item: Product): Array<number> {
+    return Array(5 - item.rating);
+  }
+
 }
