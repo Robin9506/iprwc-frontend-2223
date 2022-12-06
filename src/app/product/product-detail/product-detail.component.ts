@@ -9,6 +9,7 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class ProductDetailComponent implements OnInit {
   @Input() productList: Product[] = [] ;
+  rating: number = 5;
 
   constructor(private cartSerivce: CartService) { }
 
@@ -17,6 +18,10 @@ export class ProductDetailComponent implements OnInit {
 
   addProductToCart(product: Product){
     this.cartSerivce.addToCart(product, 1);
+  }
+
+  getProductRating(item: Product): Array<number> {
+    return Array(item.rating);
   }
 
 }

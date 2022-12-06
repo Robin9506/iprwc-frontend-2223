@@ -6,13 +6,13 @@ import { Product } from '../models/product.model';
 })
 export class ProductService {
     private products: Product[] = [
-        new Product("Mario Kart", 49.99, "Racen!", "Nintendo"),
-        new Product("Mario Kart 8", 79.99, "Racen maar hoger!", "Nintendo"),
-        new Product("Mario Party", 39.99, "Feesten!", "Nintendo"),
-        new Product("Mario Party Allstarsss", 51.99, "Feesten again!", "Nintendo"),
-        new Product("Xenoblade Chronicles", 40.00, "De toekomst!", "Monolith Soft"),
-        new Product("Xenoblade Chronicles 2", 50.00, "De toekomst again!", "Monolith Soft"),
-        new Product("Xenoblade Chronicles 3", 60.00, "De toekomst lost!", "Monolith Soft"),
+        new Product("Animal Crossing", 49.99, "dieren steken over!", "Nintendo", "../../../assets/ac.jpg", 4),
+        new Product("Mario Kart 8 Deluxe", 79.99, "Racen maar hoger!", "Nintendo", "../../../assets/marioKart8.jpg", 5),
+        new Product("Super Mario Party", 39.99, "Feesten!", "Nintendo", "../../../assets/smp.jpg", 2),
+        new Product("Mario Party Allstars", 51.99, "Feesten again!", "Nintendo", "../../../assets/mps.jpg", 4),
+        new Product("Xenoblade Chronicles", 39.99, "De toekomst!", "Monolith Soft", "../../../assets/xc1.jpg", 5),
+        new Product("Xenoblade Chronicles 2", 49.99, "De toekomst again!", "Monolith Soft", "../../../assets/xc2.jpeg", 5),
+        new Product("Xenoblade Chronicles 3", 59.99, "De toekomst lost!", "Monolith Soft", "../../../assets/xc3.jpg", 5),
     ];
 
   constructor() { }

@@ -3,17 +3,23 @@ export class Product{
     private _price: number;
     private _description: string;
     private _company: string;
+    private _imageLink: string;
+    private _rating: number
 
     constructor(
         name: string, 
         price: number, 
         description: string, 
-        company: string){
+        company: string,
+        imageLink: string,
+        rating: number){
 
             this._name = name;
             this._price = price;
             this._description = description;
             this._company = company;
+            this._imageLink = imageLink;
+            this._rating = rating;
     }
 
     public get name(){
@@ -46,6 +52,22 @@ export class Product{
 
     public set company(value: string){
         this._company = value;
+    }
+
+    public get imageLink(){
+        return this._imageLink;
+    }
+
+    public set imageLink(value: string){
+        this._imageLink = value;
+    }
+
+    public get rating(){
+        return this._rating;
+    }
+
+    public set rating(value: number){
+        this._rating = value;
     }
     
     
