@@ -1,2 +1,10 @@
-<p class="font-bold">Games (9)</p>
-<app-product-detail [productList]="products"></app-product-detail>
+<div class="grid grid-cols-4 gap-4">
+    <div class="col-span-1 col-start-1 ml-48 mt-12">
+        <app-product-filter></app-product-filter>
+    </div>
+    <div class="col-span-3 col-start-2">
+        <app-product-detail [productList]="products"></app-product-detail>
+        
+    </div>
+
+</div>
