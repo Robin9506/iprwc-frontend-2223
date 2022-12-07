@@ -21,4 +21,8 @@ export class ProductService {
     return this.products;
   }
 
+  getFilteredProductsByCompany(company: string){
+    return this.products.filter(product => product.company === company);
+  }
+
 }

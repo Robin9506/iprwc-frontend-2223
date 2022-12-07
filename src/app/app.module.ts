@@ -11,14 +11,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { CartComponent } from './cart/cart.component';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
-
-const appRoutes: Routes =[
-  { path: '', component: HomeComponent},
-  { path: 'home', component: HomeComponent},
-  { path: 'product', component: ProductComponent},
-  { path: 'login', component: LoginComponent},
-  { path: 'cart', component: CartComponent}
-]
+import { ProductFilterComponent } from './product/product-filter/product-filter.component';
 
 @NgModule({
   declarations: [
@@ -29,12 +22,12 @@ const appRoutes: Routes =[
     HomeComponent,
     LoginComponent,
     CartComponent,
-    ProductDetailComponent
+    ProductDetailComponent,
+    ProductFilterComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    RouterModule.forRoot(appRoutes)
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

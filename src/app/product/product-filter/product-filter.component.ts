@@ -14,7 +14,7 @@ export class ProductFilterComponent implements OnInit {
   }
 
   onFilter(company: string){
-    this.productService.filterProductsOnCompany(company);
+    this.productService.getFilteredProductsByCompany(company);
   }
 
 }
