@@ -23,12 +23,13 @@ export class ProductService {
   }
 
   getProductsByFilter(filter: Filter){
-    console.log(filter.company);
-    if(filter.company !==""){
-      return this.products.filter(product => product.company === filter.company);
+    console.log(filter.rating);
+    if(filter.platform === "" 
+    && filter.company === "" 
+    && filter.rating === 0){
+      return this.getProducts();
     }
-
-    return this.getProducts();
+    return this.products.filter(product => product.company === filter.company || product.rating == filter.rating || product.platform == filter.platform);
   }
 
 }

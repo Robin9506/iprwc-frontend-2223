@@ -7,6 +7,9 @@ import { ProductService } from "./product.service";
 export class FilterService{
     platformFilters: string[] = [];
     companyFilters: string[] = [];
+    ratingFilters: number[] = [];
+
+    maxRating: number = 5;
     
     constructor(private productService: ProductService){
     }
@@ -31,5 +34,15 @@ export class FilterService{
         }
 
         return this.platformFilters;
+    }
+
+    getRatingFilters(){
+        for (let index = 1; index <= this.maxRating; index++) {
+            if(!this.ratingFilters.includes(index)){
+                this.ratingFilters.push(index);           
+            }     
+        }
+
+        return this.ratingFilters;
     }
 }

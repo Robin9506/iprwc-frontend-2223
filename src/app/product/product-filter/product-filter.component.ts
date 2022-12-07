@@ -12,10 +12,12 @@ export class ProductFilterComponent implements OnInit{
   @Output() filter = new EventEmitter<Filter>();
   platformFilters: string[] = [];
   companyFilters: string[] = [];
+  ratingFilters: number[] = [];
 
   platform = "";
   company = "";
-  filterObject: Filter = new Filter("", "");
+  rating = 0;
+  filterObject: Filter = new Filter("", "", 0);
 
   constructor(private productService: ProductService, 
               private filterService: FilterService) { }
@@ -28,9 +30,13 @@ export class ProductFilterComponent implements OnInit{
   fillProductFilters(){
     this.platformFilters = this.filterService.getPlatformFilters();
     this.companyFilters = this.filterService.getCompanyFilters();
+    this.ratingFilters = this.filterService.getRatingFilters();
   }
 
   setPlatformFilter(platform: string){
+    if(platform === this.platform){
+      platform = '';
+    }
     this.platform = platform;
   }
 
@@ -41,8 +47,15 @@ export class ProductFilterComponent implements OnInit{
     this.company = company;
   }
 
+  setRatingFilter(rating: number){
+    if(rating == this.rating){
+      rating = 0;
+    }
+    this.rating = rating;
+  }
+
   onFilter(){
-    this.filterObject = new Filter(this.platform, this.company);
+    this.filterObject = new Filter(this.platform, this.company, this.rating);
     this.filter.emit(this.filterObject);
   }
 

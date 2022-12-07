@@ -11,7 +11,7 @@ import { ProductService } from '../services/product.service';
 export class ProductComponent implements OnInit, DoCheck {
   products: Product[] = [];
   filteredProducts: Product[] = [];
-  filter: Filter = new Filter("", "");
+  filter: Filter = new Filter("", "", 0);
 
   constructor(private productService: ProductService) { }
   
