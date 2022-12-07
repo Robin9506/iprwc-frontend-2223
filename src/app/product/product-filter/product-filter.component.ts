@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnChanges, OnInit, Output } from '@angular/core';
 import { Filter } from 'src/app/models/filter.model';
+import { FilterService } from 'src/app/services/filter.service';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -9,14 +10,24 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductFilterComponent implements OnInit{
   @Output() filter = new EventEmitter<Filter>();
+  platformFilters: string[] = [];
+  companyFilters: string[] = [];
 
   platform = "";
   company = "";
   filterObject: Filter = new Filter("", "");
 
-  constructor(private productService: ProductService) { }
+  constructor(private productService: ProductService, 
+              private filterService: FilterService) { }
 
   ngOnInit(): void {
+    this.fillProductFilters();
+
+  }
+
+  fillProductFilters(){
+    this.platformFilters = this.filterService.getPlatformFilters();
+    this.companyFilters = this.filterService.getCompanyFilters();
   }
 
   setPlatformFilter(platform: string){
