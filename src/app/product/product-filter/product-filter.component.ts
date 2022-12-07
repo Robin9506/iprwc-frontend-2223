@@ -11,15 +11,27 @@ export class ProductFilterComponent implements OnInit{
   @Output() filter = new EventEmitter<Filter>();
 
   platform = "";
-  company = "Nintendo";
-  filterObject: Filter = new Filter(this.platform, this.company);
+  company = "";
+  filterObject: Filter = new Filter("", "");
 
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
   }
 
+  setPlatformFilter(platform: string){
+    this.platform = platform;
+  }
+
+  setCompanyFilter(company: string){
+    if(company === this.company){
+      company = '';
+    }
+    this.company = company;
+  }
+
   onFilter(){
+    this.filterObject = new Filter(this.platform, this.company);
     this.filter.emit(this.filterObject);
   }
 

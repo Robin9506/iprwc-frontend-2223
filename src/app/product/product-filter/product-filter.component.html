@@ -1,11 +1,12 @@
-<div class="h-screen bg-green-500 text-right">
+<div class="relative h-screen bg-green-500 text-right">
     <div class="bg-yellow-200 h-[50%]">
         <p>
             Platform
         </p>
         <hr class="h-1 bg-gray-800 border-0">
-        <div>
-            12
+        <div class="absolute flex items-center mb-4 right-0">
+            <input id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+            <label for="default-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Switch</label>
         </div>
     </div>
     <div class="bg-red-200 h-[50%]">
@@ -13,7 +14,13 @@
             Company
         </p>
         <hr class="h-1 bg-gray-800 border-0">
-        <button (click)='onFilter()'>FILTER</button>
+        <div class="absolute flex items-center mb-4 right-0">
+            <input (click)="setCompanyFilter('Nintendo'); onFilter()" id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+            <label for="default-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Nintendo</label>
+
+            <input (click)="setCompanyFilter('Monolith Soft'); onFilter()" id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+            <label for="default-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Monolith Soft</label>
+        </div>
     </div>
             
 </div>

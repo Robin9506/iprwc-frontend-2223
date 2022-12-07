@@ -29,9 +29,8 @@ export class ProductComponent implements OnInit, DoCheck {
   }
 
   onFilterSelected(filterObject: Filter){
-    console.log(this.filter);
+    console.log(filterObject);
     this.filter = filterObject;
-    console.log(this.filter);
   }
 
 }
