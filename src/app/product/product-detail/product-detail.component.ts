@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { Product } from 'src/app/models/product.model';
 import { CartService } from 'src/app/services/cart.service';
 
@@ -9,7 +9,6 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class ProductDetailComponent implements OnInit {
   @Input() productList: Product[] = [] ;
-  rating: number = 5;
 
   constructor(private cartSerivce: CartService) { }
 

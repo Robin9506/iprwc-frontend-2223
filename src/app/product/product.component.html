@@ -1,10 +1,8 @@
 <div class="grid grid-cols-4 gap-4">
     <div class="col-span-1 col-start-1 ml-48 mt-12">
-        <app-product-filter></app-product-filter>
+        <app-product-filter (filter)="onFilterSelected($event)"></app-product-filter>
     </div>
     <div class="col-span-3 col-start-2">
-        <app-product-detail [productList]="products"></app-product-detail>
-        
+        <app-product-detail [productList]="filteredProducts"></app-product-detail>       
     </div>
-
 </div>

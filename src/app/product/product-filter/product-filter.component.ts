@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnChanges, OnInit, Output } from '@angular/core';
+import { Filter } from 'src/app/models/filter.model';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
@@ -6,15 +7,20 @@ import { ProductService } from 'src/app/services/product.service';
   templateUrl: './product-filter.component.html',
   styleUrls: ['./product-filter.component.scss']
 })
-export class ProductFilterComponent implements OnInit {
+export class ProductFilterComponent implements OnInit{
+  @Output() filter = new EventEmitter<Filter>();
+
+  platform = "";
+  company = "Nintendo";
+  filterObject: Filter = new Filter(this.platform, this.company);
 
   constructor(private productService: ProductService) { }
 
   ngOnInit(): void {
   }
 
-  onFilter(company: string){
-    this.productService.getFilteredProductsByCompany(company);
+  onFilter(){
+    this.filter.emit(this.filterObject);
   }
 
 }

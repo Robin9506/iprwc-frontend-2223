@@ -5,6 +5,7 @@ export class Product{
     private _company: string;
     private _imageLink: string;
     private _rating: number
+    private _platform: string
 
     constructor(
         name: string, 
@@ -12,7 +13,8 @@ export class Product{
         description: string, 
         company: string,
         imageLink: string,
-        rating: number){
+        rating: number,
+        platform: string){
 
             this._name = name;
             this._price = price;
@@ -20,6 +22,7 @@ export class Product{
             this._company = company;
             this._imageLink = imageLink;
             this._rating = rating;
+            this._platform = platform;
     }
 
     public get name(){
@@ -68,6 +71,14 @@ export class Product{
 
     public set rating(value: number){
         this._rating = value;
+    }
+    
+    public get platform(){
+        return this._platform;
+    }
+
+    public set platform(value: string){
+        this._platform = value;
     }
     
     
