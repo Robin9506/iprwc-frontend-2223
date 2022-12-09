@@ -51,17 +51,31 @@ export class ProductFilterComponent implements OnInit{
   }
 
   setCompanyFilter(company: string){
-    if(company === this.company){
-      company = '';
+    if(!this.companies.includes(company)){
+      this.companies.push(company);
     }
-    this.company = company;
+    else{
+      for (let index = 0; index < this.companies.length; index++) {
+        if(company === this.companies[index] ){
+          this.companies.splice(index, 1);
+        }
+        
+      }
+    }
   }
 
   setRatingFilter(rating: number){
-    if(rating == this.rating){
-      rating = 0;
+    if(!this.ratings.includes(rating)){
+      this.ratings.push(rating);
     }
-    this.rating = rating;
+    else{
+      for (let index = 0; index < this.ratings.length; index++) {
+        if(rating === this.ratings[index] ){
+          this.ratings.splice(index, 1);
+        }
+        
+      }
+    }
   }
 
   onFilter(){

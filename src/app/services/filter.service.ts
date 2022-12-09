@@ -1,4 +1,6 @@
 import { Injectable } from "@angular/core";
+import { Filter } from "../models/filter.model";
+import { Product } from "../models/product.model";
 import { ProductService } from "./product.service";
 
 @Injectable({
