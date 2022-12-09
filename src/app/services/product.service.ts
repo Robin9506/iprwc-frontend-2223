@@ -27,7 +27,7 @@ export class ProductService {
   }
 
   getProductsByFilter(filter: Filter){
-    const listOfFilteredProducts= [];
+    const listOfFilteredProducts: Product[]= [];
     if(!filter.platform 
     && !filter.company
     && !filter.rating){
@@ -35,25 +35,33 @@ export class ProductService {
     }
 
     for (let index = 0; index < filter.platform.length; index++) {
-      console.log(filter.platform.length);
-      listOfFilteredProducts.push(this.products.filter(product => product.platform[index] === filter.platform[index]));
+      this.products.filter(product => product.platform === filter.platform[index])
+      .map(item => listOfFilteredProducts.push(new Product(item.name, item.price, item.description, item.company, item.imageLink, item.rating, item.platform)));
+
+    }
+
+    for (let index = 0; index < filter.company.length; index++) {
+      this.products.filter(product => product.company === filter.company[index])
+      .map(item => listOfFilteredProducts.push(new Product(item.name, item.price, item.description, item.company, item.imageLink, item.rating, item.platform)));
+
     }
     
-    console.log(listOfFilteredProducts);
-
-    return this.getProducts();
+    if(!listOfFilteredProducts.length){
+      return this.getProducts();
+    }
+    return listOfFilteredProducts;
   }
 
   getProductsBySort(sort: Sort, filteredProducts: Product[]){
     if(sort.sortStrategy == SortStategy.BY_LETTER){
-      if(sort.ascending === true){
+      if(sort.ascending){
         return filteredProducts.sort((productCurrent, productNext) => productCurrent.name.localeCompare(productNext.name));
       }
         return filteredProducts.sort((productCurrent, productNext) => -1 * productCurrent.name.localeCompare(productNext.name));
     }
 
     if(sort.sortStrategy == SortStategy.BY_PRICE){
-      if(sort.ascending === true){
+      if(sort.ascending){
         return filteredProducts.sort((productCurrent, productNext) => productCurrent.price < productNext.price ? -1 : 1);
       }
         return filteredProducts.sort((productCurrent, productNext) => productCurrent.price > productNext.price ? -1 : 1);

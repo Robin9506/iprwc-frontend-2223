@@ -42,12 +42,12 @@ export class ProductFilterComponent implements OnInit{
     }
     else{
       for (let index = 0; index < this.platforms.length; index++) {
-        this.platforms.splice(index, 1);
+        if(platform === this.platforms[index] ){
+          this.platforms.splice(index, 1);
+        }
         
       }
-      // this.platforms.filter(platformElement => platformElement === platform);
     }
-    console.log(this.platforms);
   }
 
   setCompanyFilter(company: string){
