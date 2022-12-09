@@ -1,0 +1,43 @@
+<div class="space-y-8">
+    <div>
+        <button class="flex items-center justify-center text-white bg-ipNight rounded-full h-16 w-16" type="button" (click)="sortProducts(sortStrategy.BY_LETTER, true)">
+            <p class="text-xl">
+                A
+            </p> 
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75L12 3m0 0l3.75 3.75M12 3v18" />
+              </svg>    
+        </button>
+    </div>
+    <div>
+        <button class="flex items-center justify-center text-white bg-ipNight rounded-full h-16 w-16" type="button " (click)="sortProducts(sortStrategy.BY_LETTER, false)">
+            <p class="text-xl">
+                A
+            </p> 
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25L12 21m0 0l-3.75-3.75M12 21V3" />
+              </svg>  
+        </button>
+    </div>
+    <div>
+        <button class="flex items-center justify-center text-white bg-ipNight rounded-full h-16 w-16" type="button" (click)="sortProducts(sortStrategy.BY_PRICE, true)">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 ml-2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14.25 7.756a4.5 4.5 0 100 8.488M7.5 10.5h5.25m-5.25 3h5.25M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 6.75L12 3m0 0l3.75 3.75M12 3v18" />
+              </svg>                            
+        </button>
+    </div>
+    <div>
+        <button class="flex items-center justify-center text-white bg-ipNight rounded-full h-16 w-16" type="button" (click)="sortProducts(sortStrategy.BY_PRICE, false)">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 ml-2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M14.25 7.756a4.5 4.5 0 100 8.488M7.5 10.5h5.25m-5.25 3h5.25M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 17.25L12 21m0 0l-3.75-3.75M12 21V3" />
+              </svg>              
+        </button>
+    </div>
+</div>
+

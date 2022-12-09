@@ -1,32 +1,32 @@
 <div class="relative h-screen text-center">
     <div class="h-[33.33%]">
-        <p>
+        <p class="text-ipNight text-xl">
             Platform
         </p>
-        <hr class="h-0.5 bg-gray-800 border-0">
+        <hr class="h-0.5 bg-ipRed-200 border-0">
         <div class="flex items-center mb-4" *ngFor="let platformFilter of this.platformFilters">
-            <input (click)="setPlatformFilter(platformFilter); onFilter()" id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+            <input (click)="setPlatformFilter(platformFilter); onFilter()" id="default-checkbox" type="checkbox" value="" class="mt-2 w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
             <label for="default-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">{{platformFilter}}</label>
         </div>
     </div>
     <div class="h-[33.33%]">
-        <p>
+        <p class="text-ipNight text-xl">
             Company
         </p>
-        <hr class="h-0.5 bg-gray-800 border-0">
+        <hr class="h-0.5 bg-ipRed-200 border-0">
         <div class="flex items-center mb-4" *ngFor="let companyFilter of this.companyFilters">
-            <input (click)="setCompanyFilter(companyFilter); onFilter()" id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+            <input (click)="setCompanyFilter(companyFilter); onFilter()" id="default-checkbox" type="checkbox" value="" class="mt-2 w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
             <label for="default-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">{{companyFilter}}</label>
         </div>
     </div>
 
     <div class="h-[33.33%]">
-        <p>
+        <p class="text-ipNight text-xl">
             Rating
         </p>
-        <hr class="h-0.5 bg-gray-800 border-0">
+        <hr class="h-0.5 bg-ipRed-200 border-0">
         <div class="flex items-center mb-4" *ngFor="let rating of this.ratingFilters">
-            <input (click)="setRatingFilter(rating); onFilter()" id="default-checkbox" type="checkbox" value="" class="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+            <input (click)="setRatingFilter(rating); onFilter()" id="default-checkbox" type="checkbox" value="" class="mt-2 w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
             <label for="default-checkbox" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">{{rating}}</label>
         </div>
     </div>

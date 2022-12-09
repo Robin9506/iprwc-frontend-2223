@@ -14,13 +14,16 @@ export class ProductFilterComponent implements OnInit{
   companyFilters: string[] = [];
   ratingFilters: number[] = [];
 
+  platforms: string[] = [];
+  companies: string[] = [];
+  ratings: number[] = [];
+
   platform = "";
   company = "";
   rating = 0;
-  filterObject: Filter = new Filter("", "", 0);
+  filterObject: Filter = new Filter([], [], []);
 
-  constructor(private productService: ProductService, 
-              private filterService: FilterService) { }
+  constructor(private filterService: FilterService) { }
 
   ngOnInit(): void {
     this.fillProductFilters();
@@ -34,10 +37,17 @@ export class ProductFilterComponent implements OnInit{
   }
 
   setPlatformFilter(platform: string){
-    if(platform === this.platform){
-      platform = '';
+    if(!this.platforms.includes(platform)){
+      this.platforms.push(platform);
     }
-    this.platform = platform;
+    else{
+      for (let index = 0; index < this.platforms.length; index++) {
+        this.platforms.splice(index, 1);
+        
+      }
+      // this.platforms.filter(platformElement => platformElement === platform);
+    }
+    console.log(this.platforms);
   }
 
   setCompanyFilter(company: string){
@@ -55,7 +65,7 @@ export class ProductFilterComponent implements OnInit{
   }
 
   onFilter(){
-    this.filterObject = new Filter(this.platform, this.company, this.rating);
+    this.filterObject = new Filter(this.platforms, this.companies, this.ratings);
     this.filter.emit(this.filterObject);
   }
 
