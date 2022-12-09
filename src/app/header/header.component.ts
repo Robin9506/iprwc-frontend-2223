@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Cart } from '../models/cart.model';
+import { CartService } from '../services/cart.service';
 
 @Component({
   selector: 'app-header',
@@ -7,10 +9,16 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  amountInCart: number = 0;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private cartService: CartService) { }
 
   ngOnInit(): void {
+    this.cartService.getCartSubject().subscribe({
+      next: (cartItems: Cart[]) => {
+        this.amountInCart = cartItems.length;
+      }
+    })
   }
 
   navigateToHome(){
