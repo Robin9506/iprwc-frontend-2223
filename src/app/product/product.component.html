@@ -3,7 +3,10 @@
         <app-product-filter (filter)="onFilterSelected($event)"></app-product-filter>
     </div>
     <div class="col-span-3 col-start-2">
-        <app-product-detail [productList]="filteredProducts"></app-product-detail>       
+        <app-product-detail [productList]="filteredProducts"></app-product-detail>     
+        <p class="ml-48 text-ipNight text-xl border-2 border-ipRed-200 max-w-fit" *ngIf="filteredProducts.length === 0">
+            NO PRODUCTS MET FILTER CRITERIA!
+        </p>  
     </div>
     <div class="absolute top-0 col-start-4 mt-12 ml-4">
         <app-product-sort (sort)="onSortSelected($event)"></app-product-sort>
