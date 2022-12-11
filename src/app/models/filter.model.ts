@@ -1,35 +1,35 @@
 export class Filter{
-    private _platform: string[];
-    private _company: string[];
-    private _rating: number[];
+    private _platforms: string[];
+    private _companies: string[];
+    private _ratings: number[];
 
     constructor(platform: string[], company: string[], rating: number[]){
-        this._platform = platform;
-        this._company = company;
-        this._rating = rating;
+        this._platforms = platform;
+        this._companies = company;
+        this._ratings = rating;
     }
 
-    public get platform(){
-        return this._platform;
+    public get platforms(){
+        return this._platforms;
     }
 
-    public set platform(value: string[]){
-        this._platform = value;
+    public set platforms(value: string[]){
+        this._platforms = value;
     }
 
-    public get company(){
-        return this._company;
+    public get companies(){
+        return this._companies;
     }
 
-    public set company(value: string[]){
-        this._company = value;
+    public set companies(value: string[]){
+        this._companies = value;
     }
 
-    public get rating(){
-        return this._rating;
+    public get ratings(){
+        return this._ratings;
     }
 
-    public set rating(value: number[]){
-        this._rating = value;
+    public set ratings(value: number[]){
+        this._ratings = value;
     }
 }

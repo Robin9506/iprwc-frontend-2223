@@ -1,5 +1,10 @@
-<div *ngFor="let cartItem of cartItems; let i = index">
-    <p>{{cartItem.product.name}}</p>
-    <p>{{cartItem.product.price}}</p>
-    <button (click)="removeItemFromCart(i)">-</button>
+<div>
+    <div *ngIf="!cartItems.length">
+        <p>NO ITEMS IN CART</p>
+    </div>
+    <div *ngFor="let cartItem of cartItems; let i = index">
+        <p>{{cartItem.product.name}}</p>
+        <p>{{cartItem.product.price}}</p>
+        <button (click)="removeItemFromCart(i)">-</button>
+    </div>
 </div>

@@ -7,7 +7,7 @@ import { Product } from "../models/product.model";
   })
 export class ProductFilteringService{
 
-    getProductsByFilter(filter: string[] | number[], products: Product[]){
+    filterProducts(filter: string[] | number[], products: Product[]){
         let filteredProducts: Product[] = [];
         for (let index = 0; index < filter.length; index++) {
             products.filter(product => 
@@ -16,6 +16,7 @@ export class ProductFilteringService{
                 || product.rating === filter[index])
             .map(item => 
                 filteredProducts.push(new Product(
+                    item.id,
                     item.name, 
                     item.price, 
                     item.description, 
@@ -26,5 +27,14 @@ export class ProductFilteringService{
           }
 
         return filteredProducts;  
+    }
+
+    compareFilteredProductsArray(firstProductArray: Product[], secondProductArray: Product[]){
+            return firstProductArray.filter((product: Product) => {
+                return secondProductArray.find((o: Product) =>{ 
+                    return product.id === o.id;                   
+                });
+            });
+
     }
 }

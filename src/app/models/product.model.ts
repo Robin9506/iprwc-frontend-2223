@@ -1,4 +1,5 @@
 export class Product{
+    private _id: number;
     private _name: string;
     private _price: number;
     private _description: string;
@@ -8,6 +9,7 @@ export class Product{
     private _platform: string
 
     constructor(
+        id: number,
         name: string, 
         price: number, 
         description: string, 
@@ -16,6 +18,7 @@ export class Product{
         rating: number,
         platform: string){
 
+            this._id = id;
             this._name = name;
             this._price = price;
             this._description = description;
@@ -23,6 +26,14 @@ export class Product{
             this._imageLink = imageLink;
             this._rating = rating;
             this._platform = platform;
+    }
+
+    public get id(){
+        return this._id;
+    }
+
+    public set id(value: number){
+        this._id = value;
     }
 
     public get name(){

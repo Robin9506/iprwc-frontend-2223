@@ -8,7 +8,7 @@ import { Sort } from "../models/sort.model";
   })
 export class ProductSortingService{
 
-    getProductsBySort(sort: Sort, filteredProducts: Product[]){
+    sortProducts(sort: Sort, filteredProducts: Product[]){
         if(sort.sortStrategy == SortStategy.BY_LETTER){
           if(sort.ascending){
             return filteredProducts.sort((productCurrent, productNext) => productCurrent.name.localeCompare(productNext.name));
