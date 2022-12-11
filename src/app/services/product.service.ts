@@ -22,6 +22,7 @@ export class ProductService {
         new Product(9, "Mario Kart Sunshine", 81.99, "Dubbele sprint!", "Nintendo", "../../../assets/mkdd.jpg", 5, "Gamecube"),
         new Product(10, "Mario Kart Wii", 59.99, "We kart!", "Nintendo", "../../../assets/mkw.jpg", 4, "Wii"),
         new Product(11, "Super Mario Bros. Wii", 29.99, "With the bros!", "Nintendo", "../../../assets/smbw.jpg", 4, "Wii"),
+        new Product(12, "Klonoa", 19.99, "who is this?", "Bandai Namco", "../../../assets/k.jpg", 1, "Wii"),
     ];
 
 
