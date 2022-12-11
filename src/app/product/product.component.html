@@ -4,7 +4,7 @@
     </div>
     <div class="col-span-3 col-start-2">
         <app-product-detail [productList]="filteredProducts"></app-product-detail>     
-        <p class="ml-48 text-ipNight text-xl border-2 border-ipRed-200 max-w-fit" *ngIf="filteredProducts.length === 0">
+        <p class="ml-48 text-ipNight text-xl border-2 border-ipRed-200 max-w-fit" *ngIf="!filteredProducts.length">
             NO PRODUCTS MET FILTER CRITERIA!
         </p>  
     </div>

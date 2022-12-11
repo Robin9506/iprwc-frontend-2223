@@ -30,64 +30,11 @@ export class ProductService {
   }
 
   getProductsByFilter(filter: Filter){
-    let listOfFilteredProducts: Product[]= [];
 
-    let filteredPlatformProducts: Product[] =[];
-    let filteredCompanyProducts: Product[] =[];
-    let filteredRatingProducts: Product[] =[];
+    this.productFilteringService.fillFilteredProductArray(filter, this.getProducts());
 
-    for (let index = 0; index < filter.platforms.length; index++) {
-      filteredPlatformProducts = this.productFilteringService.filterProducts(filter.platforms, this.products);
-    }
-
-    for (let index = 0; index < filter.companies.length; index++) {
-      filteredCompanyProducts = this.productFilteringService.filterProducts(filter.companies, this.products);
-    }
-
-    for (let index = 0; index < filter.ratings.length; index++) {
-      filteredRatingProducts = this.productFilteringService.filterProducts(filter.ratings, this.products);
-    }
-
-    if(filter.platforms.length !== 0 && filter.companies.length !== 0 && filter.ratings.length !== 0){
-      let firstIntersection = this.productFilteringService.compareFilteredProductsArray(filteredPlatformProducts, filteredCompanyProducts);
-      return listOfFilteredProducts = this.productFilteringService.compareFilteredProductsArray(firstIntersection, filteredRatingProducts);
-    }
-    
-    
-    if(filter.platforms.length !== 0 && filter.companies.length !== 0){
-      return listOfFilteredProducts = this.productFilteringService.compareFilteredProductsArray(filteredPlatformProducts, filteredCompanyProducts);
-      
-    }
-    
-    
-    if(filter.platforms.length !== 0 && filter.ratings.length !== 0){
-      return listOfFilteredProducts = this.productFilteringService.compareFilteredProductsArray(filteredPlatformProducts, filteredRatingProducts);
-      
-    }
-    
-    if(filter.companies.length !== 0 && filter.ratings.length !== 0){
-      return listOfFilteredProducts = this.productFilteringService.compareFilteredProductsArray(filteredCompanyProducts, filteredRatingProducts);
-      
-    }
-    
-    if(filter.platforms.length !== 0){
-      return filteredPlatformProducts;
-    }
-    
-    if(filter.companies.length !== 0){
-      console.log("here");
-      return filteredCompanyProducts;
-    }
-    
-    if(filter.ratings.length !== 0){
-      return filteredRatingProducts;
-    }
-    
-    if(!listOfFilteredProducts.length){
-      return this.getProducts();
-    }
-
-    return this.getProducts();
+    return this.productFilteringService.returnFilteredProducts();
+   
   }
 
   getProductsBySort(sort: Sort, filteredProducts: Product[]){
