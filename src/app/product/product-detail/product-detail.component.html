@@ -6,8 +6,8 @@
             <img class=" max-h-[100%] h-64 w-full" src="{{item.imageLink}}" alt=""/>
           </a>
         </div>
-        <div class="w-full ">
-          <div class="pl-6 pt-2">
+        <div class="w-full relative">
+          <div class=" pl-6 pt-2">
             <h5 class="text-ipNight text-xs font-medium hover:cursor-pointer"> 
               {{item.company}} - {{item.platform}}
             </h5>
@@ -32,11 +32,11 @@
                 ({{item.rating}})
               </p>
             </div>
-            <p class="ml-1 mt-5 text-md">
-              {{item.description}}
+            <p class="ml-1 mt-5 text-md max-w-sm">
+              {{item.description | truncate}}
             </p>
             
-            <div class="relative w-full h-full">
+            <div class="absolute bottom-0 right-0 mr-4 w-24 h-24">
               <button (click)="addProductToCart(item)" class=" flex justify-center absolute right-0 w-16 h-16 mr-8 border-b-4 border-ipRed-50 bg-ipRed-200 rounded-xl text-ipBaige hover:bg-ipRed-100">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-8 h-8 mt-4 ml-2">
                   <path d="M1 1.75A.75.75 0 011.75 1h1.628a1.75 1.75 0 011.734 1.51L5.18 3a65.25 65.25 0 0113.36 1.412.75.75 0 01.58.875 48.645 48.645 0 01-1.618 6.2.75.75 0 01-.712.513H6a2.503 2.503 0 00-2.292 1.5H17.25a.75.75 0 010 1.5H2.76a.75.75 0 01-.748-.807 4.002 4.002 0 012.716-3.486L3.626 2.716a.25.25 0 00-.248-.216H1.75A.75.75 0 011 1.75zM6 17.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM15.5 19a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
@@ -45,7 +45,7 @@
                   <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
                 </svg>
                 
-                
+     
               </button>
             </div>
           </div>
