@@ -6,7 +6,7 @@
         <hr class="h-0.5 bg-ipRed-200 border-0">
         <div class="flex items-center mb-4" *ngFor="let platformFilter of this.platformFilters">
             <input (click)="setPlatformFilter(platformFilter); onFilter()" id="default-checkbox" type="checkbox" value="" class="mt-2 w-6 h-6 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-            <label for="default-checkbox" class="ml-2 text-md font-medium text-gray-900 dark:text-gray-300">{{platformFilter}}</label>
+            <label for="default-checkbox" class="ml-3 text-md font-medium text-ipNight">{{platformFilter}}</label>
         </div>
     </div>
     <div class="h-[33.33%]">
@@ -16,7 +16,7 @@
         <hr class="h-0.5 bg-ipRed-200 border-0">
         <div class="flex items-center mb-4" *ngFor="let companyFilter of this.companyFilters">
             <input (click)="setCompanyFilter(companyFilter); onFilter()" id="default-checkbox" type="checkbox" value="" class="mt-2 w-6 h-6 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-            <label for="default-checkbox" class="ml-2 text-md font-medium text-gray-900 dark:text-gray-300">{{companyFilter}}</label>
+            <label for="default-checkbox" class="ml-3 text-md font-medium text-ipNight">{{companyFilter}}</label>
         </div>
     </div>
 
@@ -27,7 +27,7 @@
         <hr class="h-0.5 bg-ipRed-200 border-0">
         <div class="flex items-center mb-4" *ngFor="let rating of this.ratingFilters">
             <input (click)="setRatingFilter(rating); onFilter()" id="default-checkbox" type="checkbox" value="" class="mt-2 w-6 h-6 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
-            <label for="default-checkbox" class="ml-2 text-md font-medium text-gray-900 dark:text-gray-300">{{rating}}</label>
+            <label for="default-checkbox" class="ml-3 text-md font-medium text-ipNight">{{rating}}</label>
         </div>
     </div>
             
