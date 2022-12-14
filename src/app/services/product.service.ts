@@ -19,7 +19,7 @@ export class ProductService {
         new Product(6, "Super Mario Party", 39.99, "Feesten!", "Nintendo", "../../../assets/smp.jpg", 2, "Switch"),
         new Product(7, "Xenoblade Chronicles 3", 59.99, "De toekomst lost!", "Monolith Soft", "../../../assets/xc3.jpg", 5, "Switch"),
         new Product(8, "Super Mario Sunshine", 82.99, "De zon schijnt!", "Nintendo", "../../../assets/sms.jpg", 5, "Gamecube"),
-        new Product(9, "Mario Kart Sunshine", 81.99, "Dubbele sprint!", "Nintendo", "../../../assets/mkdd.jpg", 5, "Gamecube"),
+        new Product(9, "Mario Kart Double Dash", 81.99, "Dubbele sprint!", "Nintendo", "../../../assets/mkdd.jpg", 5, "Gamecube"),
         new Product(10, "Mario Kart Wii", 59.99, "We kart!", "Nintendo", "../../../assets/mkw.jpg", 4, "Wii"),
         new Product(11, "Super Mario Bros. Wii", 29.99, "With the bros!", "Nintendo", "../../../assets/smbw.jpg", 4, "Wii"),
         new Product(12, "Klonoa", 19.99, "who is this?", "Bandai Namco", "../../../assets/k.jpg", 1, "Wii"),

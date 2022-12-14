@@ -16,7 +16,7 @@ export class ProductDetailComponent implements OnInit {
   }
 
   addProductToCart(product: Product){
-    this.cartSerivce.addToCart(product, 1);
+    this.cartSerivce.addToCart(product);
   }
 
   getProductRating(item: Product): Array<number> {

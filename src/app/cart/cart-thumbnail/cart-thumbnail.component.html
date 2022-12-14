@@ -1,0 +1,12 @@
+
+<div class="ml-8 w-128 flex items-center justify-between text-lg font-bold">
+    <div>
+        <img class=" max-h-[100%] min-w-fit h-40 w-full border-2 border-ipGrue" src="{{item.product.imageLink}}" alt=""/>
+    </div>
+    <div class="text-ipNight">
+        <p>{{item.product.name}}</p>
+    </div>
+    <div class="ml-8 text-ipRed-200">
+        <p>{{item.product.price | currency: 'EUR'}}</p>
+    </div>
+</div>

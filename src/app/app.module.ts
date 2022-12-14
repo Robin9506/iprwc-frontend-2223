@@ -14,6 +14,8 @@ import { ProductFilterComponent } from './product/product-filter/product-filter.
 import { FormsModule } from '@angular/forms';
 import { ProductSortComponent } from './product/product-sort/product-sort.component';
 import { TruncatePipe } from './pipe/truncate.pipe';
+import { CartThumbnailComponent } from './cart/cart-thumbnail/cart-thumbnail.component';
+import { PromoCodeComponent } from './cart/promo-code/promo-code.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,9 @@ import { TruncatePipe } from './pipe/truncate.pipe';
     ProductDetailComponent,
     ProductFilterComponent,
     ProductSortComponent,
-    TruncatePipe
+    TruncatePipe,
+    CartThumbnailComponent,
+    PromoCodeComponent
   ],
   imports: [
     BrowserModule,

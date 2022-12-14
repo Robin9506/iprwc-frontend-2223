@@ -14,11 +14,13 @@ export class HeaderComponent implements OnInit {
   constructor(private router: Router, private cartService: CartService) { }
 
   ngOnInit(): void {
+    this.amountInCart = this.cartService.getCurrentAmountInCart();
     this.cartService.getCartSubject().subscribe({
       next: (cartItems: Cart[]) => {
         this.amountInCart = cartItems.length;
       }
     })
+    console.log(this.cartService.getCurrentAmountInCart());
   }
 
   navigateToHome(){

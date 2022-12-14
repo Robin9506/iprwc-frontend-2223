@@ -90,8 +90,6 @@ export class Product{
 
     public set platform(value: string){
         this._platform = value;
-    }
+    }   
     
-    
-
 }
