@@ -2,7 +2,7 @@
     <div class="mt-5 text-xl text-ipNight" *ngIf="!cartItems.length">
         <p>NO ITEMS IN CART</p>
     </div>
-    <div class="relative w-1/2 mt-6">
+    <div class="relative w-1/2 mt-6" *ngIf="cartItems.length">
         <div class="flex items-center justify-between bg-white h-48 w-full border-b-2 border-ipGrue" *ngFor="let cartItem of cartItems; let i = index">
             <app-cart-thumbnail [item]="cartItem"></app-cart-thumbnail>
             <button class=" pl-3.5 mr-16 w-16 h-16 text-white border-b-4 border-ipRed-50 bg-ipRed-200 rounded-xl text-ipBaige hover:bg-ipRed-100" (click)="removeItemFromCart(i)">
@@ -15,9 +15,12 @@
             <div>
                 <app-promo-code (code)="giveDiscount($event)"></app-promo-code>
             </div>
-            <div class="absolute right-0 font-bold text-xl mr-5 text-ipNight" *ngIf="cartItems.length">
+            <div class="absolute right-0 font-bold text-xl mr-5 mt-3 text-ipNight">
                 Total: {{totalPrice | currency: 'EUR'}}
             </div>
+        </div>
+        <div class="text-xl absolute right-0 mt-8 ">
+            <button class="bg-ipRed-200 text-white rounded-full p-4 w-48">Check Out</button>
         </div>
         
     </div>

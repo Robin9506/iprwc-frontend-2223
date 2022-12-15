@@ -1,6 +1,12 @@
 
-<div class="flex justify-between items-center w-96">
-    <label for="promo-code">Promo</label>
-    <input type="text" id="promo-code" name="promo-code"><br><br>
-    <button (click)="enterCode()">Enter</button>
+<div class="ml-64 flex justify-between items-center w-96 rounded-full bg-ipNight mt-3" *ngIf="!hasDiscount">
+    <label class="ml-4 text-md text-white" for="promo-code">Promo</label>
+    <input (keydown.enter)="enterCode(promo.value);" class="rounded-full border-none outline-0" type="text" id="promo-code" name="promo-code" #promo><br><br>
+    <button class="mr-5 p-1 text-white font-bold bg-ipRed-200 rounded-full" (click)="enterCode(promo.value)">Enter</button>
+</div>
+
+<div class="ml-64 flex justify-between items-center w-96 h-12 rounded-full bg-ipNight mt-3" *ngIf="hasDiscount">
+    <label class="ml-4 text-md text-white" for="promo-code">Promo</label>
+    <label class="mr-5 text-md text-white" for="promo-code">{{currentPromoCode}}</label>
+    <button class="mr-5 px-2 text-white font-bold bg-ipRed-200 rounded-full" (click)="removeCode()">X</button>
 </div>

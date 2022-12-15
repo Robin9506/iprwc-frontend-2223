@@ -19,6 +19,9 @@ module.exports = {
       ipNight: '#003049',
       ipGrue: '#669BBC'
     },
+    spacing: {
+      '128': '38rem',
+    }
     }
   },
   plugins: [],

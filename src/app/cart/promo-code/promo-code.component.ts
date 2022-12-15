@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { PromoService } from 'src/app/services/promo.service';
 
 @Component({
   selector: 'app-promo-code',
@@ -7,14 +8,37 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class PromoCodeComponent implements OnInit {
   @Output() code = new EventEmitter<number>();
+  currentPromoCode: string = "";
+  currentDiscount: number = 0;
+  hasDiscount: boolean = false;
 
-  constructor() { }
+  constructor(private promoService: PromoService) {
+
+   }
 
   ngOnInit(): void {
   }
 
-  enterCode(){
-    this.code.emit(25);
+  enterCode(promoCode: string){
+    const discount: number = this.promoService.checkPromoCode(promoCode);
+
+    if(discount > 0){
+      this.currentPromoCode = promoCode;
+      this.currentDiscount = discount;
+      this.hasDiscount = true;
+      this.code.emit(this.currentDiscount);
+    }
+    else{
+      this.hasDiscount = false;
+    }
+
+  }
+
+  removeCode(){
+    this.currentPromoCode = "";
+    this.currentDiscount = 0;
+    this.hasDiscount = false;
+    this.code.emit(this.currentDiscount);
   }
 
 }
