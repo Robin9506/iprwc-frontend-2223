@@ -11,6 +11,7 @@ import { CartService } from '../services/cart.service';
 export class CartComponent implements OnInit {
   cartItems: Cart[] = [];
   totalPrice: number = 0;
+  discountPrice: number = 0;
   promoDiscount: number = 0;
 
   constructor(private cartService: CartService) { }
@@ -37,13 +38,21 @@ export class CartComponent implements OnInit {
       currentPrice += this.cartItems[index].product.price;   
     }
 
-    currentPrice *= ((100 - this.promoDiscount)/100)
     this.totalPrice = currentPrice;
   }
 
   giveDiscount(discount: number){
     this.promoDiscount = discount;
+    this.calculateDiscount();
     this.calculateTotalPrice();
+  }
+
+  calculateDiscount(){
+    this.discountPrice = 0;
+    if(this.promoDiscount > 0){
+      this.discountPrice = this.totalPrice *= ((100 - this.promoDiscount)/100)
+    }
+    
   }
 
 }

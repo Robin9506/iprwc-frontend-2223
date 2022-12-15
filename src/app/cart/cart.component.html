@@ -11,17 +11,29 @@
                   </svg>                  
             </button>
         </div>
-        <div class="flex justify-between items-center">
+        <div class="flex justify-between">
             <div>
                 <app-promo-code (code)="giveDiscount($event)"></app-promo-code>
             </div>
-            <div class="absolute right-0 font-bold text-xl mr-5 mt-3 text-ipNight">
-                Total: {{totalPrice | currency: 'EUR'}}
-            </div>
+            <div class="mt-4">
+                <div class="flex space-x-1 absolute right-0 font-bold text-xl mr-5 text-ipNight">
+                    <p>
+                        Total:
+                    </p>                   
+                    <p [ngClass]="{discountPrice}">
+                        {{totalPrice | currency: 'EUR'}}
+                    </p>
+
+                </div>
+                <div *ngIf="discountPrice > 0" class="absolute right-0 font-bold text-xl mr-5 mt-7 text-ipNight">
+                    {{discountPrice | currency: 'EUR'}}
+                </div>
+            </div>     
         </div>
-        <div class="text-xl absolute right-0 mt-8 ">
+        <div class="text-xl absolute right-0 mt-12 ">
             <button class="bg-ipRed-200 text-white rounded-full p-4 w-48">Check Out</button>
         </div>
+        
         
     </div>
 </div>
