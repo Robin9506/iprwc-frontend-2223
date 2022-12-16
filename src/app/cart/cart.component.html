@@ -20,12 +20,12 @@
                     <p>
                         Total:
                     </p>                   
-                    <p [ngClass]="{discountPrice}">
+                    <p [ngClass]="{promoDiscount}">
                         {{totalPrice | currency: 'EUR'}}
                     </p>
 
                 </div>
-                <div *ngIf="discountPrice > 0" class="absolute right-0 font-bold text-xl mr-5 mt-7 text-ipNight">
+                <div *ngIf="promoDiscount > 0" class="absolute right-0 font-bold text-xl mr-5 mt-7 text-ipNight">
                     {{discountPrice | currency: 'EUR'}}
                 </div>
             </div>     
