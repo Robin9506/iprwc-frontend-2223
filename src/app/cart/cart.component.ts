@@ -30,6 +30,7 @@ export class CartComponent implements OnInit {
   removeItemFromCart(id: number){
     this.cartService.removeFromCart(id);
     this.calculateTotalPrice();
+    this.calculateDiscount();
   }
 
   calculateTotalPrice(){
@@ -49,9 +50,13 @@ export class CartComponent implements OnInit {
 
   calculateDiscount(){
     this.discountPrice = 0;
+    let totalPrice = this.totalPrice;
+
     if(this.promoDiscount > 0){
-      this.discountPrice = this.totalPrice *= ((100 - this.promoDiscount)/100)
+        return this.discountPrice = totalPrice *= ((100 - this.promoDiscount)/100);
     }
+   
+    return this.discountPrice = 0;
     
   }
 
