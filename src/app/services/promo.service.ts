@@ -6,11 +6,7 @@ import { Promo } from "../models/promo.model";
   })
 export class PromoService{
     private promoCodes: Promo[] = [
-<<<<<<< HEAD
-        new Promo("edwin", 99),
-=======
         new Promo("rrr100", 100),
->>>>>>> cd1e0fd719d7eba605e3039c6df181975a579d3f
         new Promo("rrr95", 95),
         new Promo("iprwc", 75),
         new Promo("rrr", 50),
