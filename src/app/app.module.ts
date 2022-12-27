@@ -16,6 +16,12 @@ import { ProductSortComponent } from './product/product-sort/product-sort.compon
 import { TruncatePipe } from './pipe/truncate.pipe';
 import { CartThumbnailComponent } from './cart/cart-thumbnail/cart-thumbnail.component';
 import { PromoCodeComponent } from './cart/promo-code/promo-code.component';
+import { UnderHeaderComponent } from './header/under-header/under-header.component';
+import { AdminPortalComponent } from './admin-portal/admin-portal.component';
+import { AdminProductsComponent } from './admin-portal/admin-products/admin-products.component';
+import { AdminHeaderComponent } from './admin-header/admin-header.component';
+import { AdminPromosComponent } from './admin-portal/admin-promos/admin-promos.component';
+import { AdminAccountsComponent } from './admin-portal/admin-accounts/admin-accounts.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +37,13 @@ import { PromoCodeComponent } from './cart/promo-code/promo-code.component';
     ProductSortComponent,
     TruncatePipe,
     CartThumbnailComponent,
-    PromoCodeComponent
+    PromoCodeComponent,
+    UnderHeaderComponent,
+    AdminPortalComponent,
+    AdminProductsComponent,
+    AdminHeaderComponent,
+    AdminPromosComponent,
+    AdminAccountsComponent
   ],
   imports: [
     BrowserModule,
