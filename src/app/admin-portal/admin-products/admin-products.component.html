@@ -1,31 +1,31 @@
-<div class="flex justify-center w-full mt-8 font-mono">
+<div class="flex justify-center w-full mt-8 font-mono" *ngIf="!editing">
     <div class="w-6/12 bg-white">
         <table class="w-full divide-y divide-solid">
             <thead class="bg-ipGrue text-white h-12">
-            <tr>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Platform</th>
-                <th>Edit</th>
-                <th>Delete</th>
-            </tr>
+                <tr>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Platform</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                </tr>
             </thead>
-            <tbody class="divide-y divide-solid text-center text-ipRed-200">
-            <tr class="h-16" *ngFor="let product of productList">
-                <td>{{product.name}}</td>
-                <td>{{product.price}}</td>
-                <td>{{product.platform}}</td>
-                <td>
-                    <button>
-                        EDIT
-                    </button>
-                </td>
-                <td>
-                    <button>
-                        DELETE
-                    </button>
-                </td>
-            </tr>
+            <tbody class="divide-y divide-solid text-center text-ipRed-200" *ngFor="let product of productList">
+                <tr class="h-16">
+                    <td>{{product.name}}</td>
+                    <td>{{product.price}}</td>
+                    <td>{{product.platform}}</td>
+                    <td>
+                        <button (click)="navigateToEditProduct(product.id)">
+                            EDIT
+                        </button>
+                    </td>
+                    <td>
+                        <button (click)="deleteProduct(product.id)">
+                            DELETE
+                        </button>
+                    </td>
+                </tr>
             </tbody>
         </table>
     </div>

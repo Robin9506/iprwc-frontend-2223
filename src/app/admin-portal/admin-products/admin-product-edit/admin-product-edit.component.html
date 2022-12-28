@@ -1,0 +1,14 @@
+<div class="relative flex justify-center w-full bg-blue h-12">
+    <div class="w-1/2 h-screen bg-white">
+        <div>
+            <p>{{productName}}</p>
+        </div>
+        <div>
+            <p>{{productPrice}}</p>
+        </div>
+    </div>
+    <div class="w-1/2 h-screen bg-red-500">
+        <input type="text" [(ngModel)]="productName">
+        <input type="text" [(ngModel)]="productPrice">
+    </div>
+</div>

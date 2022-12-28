@@ -9,6 +9,7 @@ import { AdminPortalComponent } from './admin-portal/admin-portal.component';
 import { AdminProductsComponent } from './admin-portal/admin-products/admin-products.component';
 import { AdminPromosComponent } from './admin-portal/admin-promos/admin-promos.component';
 import { AdminAccountsComponent } from './admin-portal/admin-accounts/admin-accounts.component';
+import { AdminProductEditComponent } from './admin-portal/admin-products/admin-product-edit/admin-product-edit.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent},
@@ -16,7 +17,8 @@ const routes: Routes = [
   { path: 'product', component: ProductComponent},
   { path: 'login', component: LoginComponent},
   { path: 'cart', component: CartComponent},
-  {path: 'admin', component: AdminPortalComponent, children: [
+  { path: 'product-edit/:id', component: AdminProductEditComponent},
+  { path: 'admin', component: AdminPortalComponent, children: [
     {path: '', component: AdminAccountsComponent},
     {path: 'accounts', component: AdminAccountsComponent},
     {path: 'products', component: AdminProductsComponent},

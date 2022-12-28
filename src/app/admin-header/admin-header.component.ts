@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AdminService } from '../services/admin.service';
 
 @Component({
   selector: 'app-admin-header',
@@ -8,9 +9,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class AdminHeaderComponent implements OnInit {
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
+  constructor(
+    private adminService: AdminService,
+    private router: Router, 
+    private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.adminService.changeEditingStatus(false);
   }
 
   navigateToAccounts(){

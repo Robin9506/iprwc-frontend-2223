@@ -22,6 +22,7 @@ import { AdminProductsComponent } from './admin-portal/admin-products/admin-prod
 import { AdminHeaderComponent } from './admin-header/admin-header.component';
 import { AdminPromosComponent } from './admin-portal/admin-promos/admin-promos.component';
 import { AdminAccountsComponent } from './admin-portal/admin-accounts/admin-accounts.component';
+import { AdminProductEditComponent } from './admin-portal/admin-products/admin-product-edit/admin-product-edit.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { AdminAccountsComponent } from './admin-portal/admin-accounts/admin-acco
     AdminProductsComponent,
     AdminHeaderComponent,
     AdminPromosComponent,
-    AdminAccountsComponent
+    AdminAccountsComponent,
+    AdminProductEditComponent
   ],
   imports: [
     BrowserModule,
