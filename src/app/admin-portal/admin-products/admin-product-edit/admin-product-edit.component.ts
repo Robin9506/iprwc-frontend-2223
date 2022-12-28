@@ -10,10 +10,17 @@ import { ProductService } from 'src/app/services/product.service';
   styleUrls: ['./admin-product-edit.component.scss']
 })
 export class AdminProductEditComponent implements OnInit{
-  product: any;
+  product: Product;
   id: number = 0;
+
   productName: string = '';
   productPrice: number = 0;
+  productDescription: string = '';
+  productCompany: string = '';
+  productImageLink: string = '';
+  productRating: number = 0;
+  productPlatform: string = '';
+
 
   productNameInput = new FormControl('product-name');
 
@@ -31,6 +38,11 @@ export class AdminProductEditComponent implements OnInit{
     this.product = this.productService.getSingleProduct(this.id)!;
     this.productName = this.product.name;
     this.productPrice = this.product.price;
+    this.productDescription = this.product.description;
+    this.productCompany = this.product.company;
+    this.productImageLink = this.product.imageLink;
+    this.productRating = this.product.rating;
+    this.productPlatform = this.product.platform;
   }
 
 }

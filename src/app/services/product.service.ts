@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { SortStategy } from '../enums/sort.enum';
 import { Filter } from '../models/filter.model';
 import { Product } from '../models/product.model';
 import { Sort } from '../models/sort.model';

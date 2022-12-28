@@ -6,9 +6,30 @@
         <div>
             <p>{{productPrice}}</p>
         </div>
+        <div>
+            <p>{{productDescription}}</p>
+        </div>
+        <div>
+            <p>{{productCompany}}</p>
+        </div>
+        <div>
+            <p>{{productImageLink}}</p>
+        </div>
+        <div>
+            <p>{{productRating}}</p>
+        </div>
+        <div>
+            <p>{{productPlatform}}</p>
+        </div>
+
     </div>
     <div class="w-1/2 h-screen bg-red-500">
         <input type="text" [(ngModel)]="productName">
-        <input type="text" [(ngModel)]="productPrice">
+        <input type="number" [(ngModel)]="productPrice">
+        <input type="text" [(ngModel)]="productDescription">
+        <input type="text" [(ngModel)]="productCompany">
+        <input type="text" [(ngModel)]="productImageLink">
+        <input type="number" [(ngModel)]="productRating">
+        <input type="text" [(ngModel)]="productPlatform">
     </div>
 </div>
