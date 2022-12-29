@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup, NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/models/product.model';
 import { ProductService } from 'src/app/services/product.service';
@@ -22,13 +22,13 @@ export class AdminProductEditComponent implements OnInit{
   productPlatform: string = '';
 
 
-  productNameInput = new FormControl('product-name');
 
   constructor(private productService: ProductService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.id =+ this.activatedRoute.snapshot.paramMap.get('id')!;
     this.setFormVariables();
+
   }
 
 
@@ -45,4 +45,16 @@ export class AdminProductEditComponent implements OnInit{
     this.productPlatform = this.product.platform;
   }
 
+  editProduct(form: NgForm, id: number){
+    console.log(form);
+    console.log(id);
+  }
+
+  getProductRating(rating: number): Array<number> {
+    return Array(rating);
+  }
+
+  getNonRating(rating: number): Array<number> {
+    return Array(5 - rating);
+  }
 }

@@ -11,7 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { CartComponent } from './cart/cart.component';
 import { ProductDetailComponent } from './product/product-detail/product-detail.component';
 import { ProductFilterComponent } from './product/product-filter/product-filter.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductSortComponent } from './product/product-sort/product-sort.component';
 import { TruncatePipe } from './pipe/truncate.pipe';
 import { CartThumbnailComponent } from './cart/cart-thumbnail/cart-thumbnail.component';
@@ -50,7 +50,7 @@ import { AdminProductEditComponent } from './admin-portal/admin-products/admin-p
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
