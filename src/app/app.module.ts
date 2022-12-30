@@ -16,6 +16,7 @@ import { ProductSortComponent } from './product/product-sort/product-sort.compon
 import { TruncatePipe } from './pipe/truncate.pipe';
 import { CartThumbnailComponent } from './cart/cart-thumbnail/cart-thumbnail.component';
 import { PromoCodeComponent } from './cart/promo-code/promo-code.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { PromoCodeComponent } from './cart/promo-code/promo-code.component';
     ProductSortComponent,
     TruncatePipe,
     CartThumbnailComponent,
-    PromoCodeComponent
+    PromoCodeComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
