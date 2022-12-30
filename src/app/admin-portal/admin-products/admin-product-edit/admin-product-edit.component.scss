@@ -1,5 +1,5 @@
 .editInput{
-    @apply block w-full p-3 mb-6 text-center rounded rounded-full mt-2
+    @apply block w-full p-3 mb-6 text-center rounded rounded-full mt-2 
 }
 
 .editInputDescription{
@@ -15,7 +15,7 @@
 }
 
 .submitButton{
-    @apply flex justify-center focus:outline-none text-white bg-ipRed-200 rounded rounded-full p-3 
+    @apply flex justify-center hover:bg-ipNight2 hover:cursor-pointer focus:outline-none text-white bg-ipNight rounded rounded-full p-3
 }
 
 h1{
@@ -32,4 +32,8 @@ h1{
 
 .productRating{
     @apply flex flex-row mb-4
+}
+
+.productDescription{
+    @apply w-80 text-xl text-ipNight mt-4
 }

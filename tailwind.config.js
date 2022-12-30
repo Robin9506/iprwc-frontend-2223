@@ -17,7 +17,9 @@ module.exports = {
       },
       ipBaige: '#FDF0D5',
       ipNight: '#003049',
-      ipGrue: '#669BBC'
+      ipNight2: '#001B29',
+      ipGrue: '#16A34A',
+      ipGrue2: '#14532D'
     },
     spacing: {
       '128': '38rem',

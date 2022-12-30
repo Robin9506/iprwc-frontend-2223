@@ -1,7 +1,8 @@
 <div class="relative flex justify-center w-full bg-blue h-12">
     <div class="w-3/5 h-screen flex">
-        <div class="w-3/4 ml-24 mt-4 ">
+        <div class="w-3/4 ml-24 mt-12 ">
             <div class="productName">
+                <p *ngIf="productName.length === 0">Name</p>
                 <p>{{productName}}</p>
             </div>
             <div class="text-ipNight text-sm font-medium mb-6 ml-0.5"> 
@@ -34,18 +35,17 @@
         </div>
         <div class="w-full mt-64 ">
 
-            <div class="productPrice">
+            <div *ngIf="productPrice >= 0" class="productPrice">
                 <p>{{productPrice | currency:'EUR'}}</p>
             </div>
-
             
-            <div>
+            <div class="productDescription">
                 <p>{{productDescription}}</p>
             </div>
         </div>
         
     </div>
-    <div class="w-2/5 h-screen bg-ipGrue">
+    <div class="w-2/5 h-[110vh] bg-ipRed-100">
         <h1>Edit Product</h1>
         <div class="mt-20 h-4/5 w-full flex items-center justify-center">
             
@@ -57,7 +57,7 @@
                     </div>
                     <div class="inputField">
                         <label class="label">Price</label>
-                        <input class="editInput" type="number" name="productPrice" [(ngModel)]="productPrice">
+                        <input class="editInput" min="0" max="500" type="number" name="productPrice" [(ngModel)]="productPrice">
                     </div>
                     <div class="inputField">
                         <label class="label">Description</label>

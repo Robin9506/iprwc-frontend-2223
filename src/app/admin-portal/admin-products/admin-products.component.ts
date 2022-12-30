@@ -20,8 +20,12 @@ editing: boolean = false;
     private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.productList = this.productService.getProducts();
+    this.refreshProductList();
 
+  }
+
+  refreshProductList(){
+    this.productList = this.productService.getProducts();
   }
 
   navigateToEditProduct(productId: number){
@@ -31,6 +35,7 @@ editing: boolean = false;
 
   deleteProduct(productId: number){
     this.productService.deleteProduct(productId);
+    this.refreshProductList();
   }
 
 }

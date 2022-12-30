@@ -1,0 +1,15 @@
+.inputField{
+    @apply text-center font-bold
+}
+
+.editInput{
+    @apply block w-[45vh] p-3 mb-6 text-center rounded rounded-full mt-2 
+}
+
+.label{
+    @apply text-white
+}
+
+.submitButton{
+    @apply flex items-center justify-center hover:cursor-pointer focus:outline-none text-white text-lg font-bold hover:bg-green-900 bg-green-600 rounded rounded-full p-3 mt-16
+}
