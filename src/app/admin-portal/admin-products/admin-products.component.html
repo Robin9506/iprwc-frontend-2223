@@ -4,6 +4,7 @@
         <table class="w-full divide-y divide-solid bg-white">
             <thead class="bg-ipRed-100 text-ipBaige h-12">
                 <tr>
+                    <th>Index</th>
                     <th>Name</th>
                     <th>Price</th>
                     <th>Platform</th>
@@ -11,8 +12,9 @@
                     <th>Delete</th>
                 </tr>
             </thead>
-            <tbody class=" divide-y divide-solid text-center text-ipRed-200 font-bold" *ngFor="let product of productList">
+            <tbody class=" divide-y divide-solid text-center text-ipRed-200 font-bold" *ngFor="let product of productList; let i = index">
                 <tr class="h-16 text-lg">
+                    <td>{{i + 1}}</td>
                     <td>{{product.name}}</td>
                     <td>{{product.price}}</td>
                     <td>{{product.platform}}</td>
