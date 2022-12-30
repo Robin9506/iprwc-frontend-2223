@@ -1,5 +1,5 @@
 <app-banner></app-banner>
-<nav class="relative w-full p-6 bg-ipRed-200 font-mono shadow-xl">
+<nav class="relative w-full p-6 bg-ipRed-200 font-mono">
     <div class="flex items-center justify-between">
         <div class="text-white object-scale-down h-12 w-28 hover:cursor-pointer" (click)="navigateToHome()">
             <img src="../../assets/rrrlogo.png" alt="">
@@ -9,6 +9,8 @@
             <a class="hover:text-ipNight hover:cursor-pointer" (click)="navigateToProduct()">Products</a>                
             <a class="hover:text-ipNight hover:cursor-pointer" (click)="navigateToAboutUs()">About</a>                
             <a class="hover:text-ipNight hover:cursor-pointer" (click)="navigateToProfile()">Profile</a>                
+            <a class="hover:text-ipNight hover:cursor-pointer" (click)="navigateToAdmin()">Admin</a>                
+
         </div>
         <div class="flex justify-between space-x-5 text-white">
             <div class="p-3 px-6 pt-2 bg-ipNight 
@@ -31,5 +33,5 @@
 
         </div>
     </div>
-
 </nav>
+<app-under-header></app-under-header>

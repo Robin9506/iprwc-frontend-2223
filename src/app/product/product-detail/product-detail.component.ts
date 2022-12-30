@@ -10,13 +10,13 @@ import { CartService } from 'src/app/services/cart.service';
 export class ProductDetailComponent implements OnInit {
   @Input() productList: Product[] = [] ;
 
-  constructor(private cartSerivce: CartService) { }
+  constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
   }
 
   addProductToCart(product: Product){
-    this.cartSerivce.addToCart(product);
+    this.cartService.addToCart(product);
   }
 
   getProductRating(item: Product): Array<number> {

@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { SortStategy } from '../enums/sort.enum';
 import { Filter } from '../models/filter.model';
 import { Product } from '../models/product.model';
 import { Sort } from '../models/sort.model';
@@ -34,6 +33,28 @@ export class ProductService {
     return this.products;
   }
 
+  getSingleProduct(productId: number){
+    let product: Product = new Product(0 ,"", 0, "", "", "", 0,"");
+    this.products.filter(product => 
+      product.id === productId)
+            .map(item => 
+              product = new Product(
+                item.id,
+                item.name, 
+                item.price, 
+                item.description, 
+                item.company, 
+                item.imageLink, 
+                item.rating, 
+                item.platform));
+      
+                return product;
+}
+              
+                    
+          
+
+
   getProductsByFilter(filter: Filter){
     this.productFilteringService.fillFilteredProductArray(filter, this.getProducts());
     return this.productFilteringService.returnFilteredProducts();
@@ -43,6 +64,12 @@ export class ProductService {
   getProductsBySort(sort: Sort, filteredProducts: Product[]){
     this.productSortingService.sortProducts(sort, filteredProducts);
     return filteredProducts;
+  }
+
+  deleteProduct(productId: number){
+    this.products = this.products.filter(function( obj ) {
+      return obj.id !== productId;
+    })
   }
 
 }
