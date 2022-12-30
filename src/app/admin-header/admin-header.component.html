@@ -1,5 +1,13 @@
-<div class="text-ipRed-100 text-xl">
-    <a class="hover:text-ipNight hover:cursor-pointer" (click)="navigateToAccounts()">Accounts</a>                
-    <a class="hover:text-ipNight hover:cursor-pointer" (click)="navigateToProducts()">Products</a>                
-    <a class="hover:text-ipNight hover:cursor-pointer" (click)="navigateToPromos()">Promos</a>
+<div class="text-white text-xl text-center">
+    <hr>    
+    <label class="text-3xl">Admin Menu</label>
+    <hr>
+        <div class="inline-block h-12 ">
+            <button class="hover:text-ipNight hover:cursor-pointer disabled:text-ipRed-100" disabled (click)="navigateToAccounts() ">Accounts</button>
+            <button class="hover:text-ipNight hover:cursor-pointer disabled:text-ipRed-100" disabled (click)="navigateToAccounts()">Add Account</button>
+        </div>                
+        <div>
+            <a class="hover:text-ipNight hover:cursor-pointer" (click)="navigateToProducts()">Products</a>
+            <a class="hover:text-ipNight hover:cursor-pointer" (click)="navigateToProducts()">Add Product</a>
+        </div>                
 </div>

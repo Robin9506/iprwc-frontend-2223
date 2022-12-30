@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent},
   { path: 'product-edit/:id', component: AdminProductEditComponent},
   { path: 'admin', component: AdminPortalComponent, children: [
-    {path: '', component: AdminAccountsComponent},
+    {path: '', component: AdminProductsComponent},
     {path: 'accounts', component: AdminAccountsComponent},
     {path: 'products', component: AdminProductsComponent},
     {path: 'promos', component: AdminPromosComponent},
