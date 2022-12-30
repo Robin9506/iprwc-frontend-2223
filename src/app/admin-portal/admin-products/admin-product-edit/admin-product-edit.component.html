@@ -1,4 +1,4 @@
-<div class="relative flex justify-center w-full bg-blue h-12">
+<div class="relative flex justify-center w-full bg-blue h-screen">
     <div class="w-3/5 h-screen flex">
         <div class="w-3/4 ml-24 mt-12 ">
             <div class="productName">
@@ -45,8 +45,8 @@
         </div>
         
     </div>
-    <div class="w-2/5 h-[110vh] bg-ipRed-100">
-        <h1>Edit Product</h1>
+    <div class="w-2/5 h-[111vh] bg-ipRed-100">
+        <h1 class="mt-8">Edit Product</h1>
         <div class="mt-20 h-4/5 w-full flex items-center justify-center">
             
             <form (ngSubmit)="editProduct(editForm, id)" #editForm="ngForm">
@@ -79,7 +79,7 @@
                         <label class="label">Platform</label>
                         <input class="editInput" type="text" name="productPlatform" [(ngModel)]="productPlatform">
                     </div>
-                    <div class="submitButton">
+                    <div class="submitButton mt-8 mb-6">
                         <button  type="submit">Submit</button>
                     </div>
                 </div>
