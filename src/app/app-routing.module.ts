@@ -11,6 +11,7 @@ import { AdminProductsComponent } from './admin-portal/admin-products/admin-prod
 import { AdminPromosComponent } from './admin-portal/admin-promos/admin-promos.component';
 import { AdminAccountsComponent } from './admin-portal/admin-accounts/admin-accounts.component';
 import { AdminProductEditComponent } from './admin-portal/admin-products/admin-product-edit/admin-product-edit.component';
+import { AdminProductAddComponent } from './admin-portal/admin-products/admin-product-add/admin-product-add.component';
 
 
 const routes: Routes = [
@@ -20,7 +21,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'cart', component: CartComponent},
   { path: 'profile', component: ProfileComponent},
-
+  { path: 'product-add', component: AdminProductAddComponent},
   { path: 'product-edit/:id', component: AdminProductEditComponent},
   { path: 'admin', component: AdminPortalComponent, children: [
     {path: '', component: AdminProductsComponent},

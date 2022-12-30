@@ -33,6 +33,11 @@ editing: boolean = false;
     this.router.navigate(['product-edit/' + productId]);
   }
 
+  navigateToAddProduct(){
+    this.editing = true;
+    this.router.navigate(['product-add/']);
+  }
+
   deleteProduct(productId: number){
     this.productService.deleteProduct(productId);
     this.refreshProductList();
