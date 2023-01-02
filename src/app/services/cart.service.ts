@@ -70,6 +70,11 @@ export class CartService{
         this.getCartSubject();
         return this.cart.length;
     }
+
+    clearCart(){
+        localStorage.removeItem('cartItems');
+        this.setCart();
+    }
         
 
 }

@@ -27,6 +27,7 @@ import { AdminProductEditComponent } from './admin-portal/admin-products/admin-p
 import { ModalComponent } from './modal/modal.component';
 import { FooterComponent } from './footer/footer.component';
 import { AdminProductAddComponent } from './admin-portal/admin-products/admin-product-add/admin-product-add.component';
+import { AdminOrdersComponent } from './admin-portal/admin-orders/admin-orders.component';
 
 
 @NgModule({
@@ -54,7 +55,8 @@ import { AdminProductAddComponent } from './admin-portal/admin-products/admin-pr
     AdminProductEditComponent,
     ModalComponent,
     FooterComponent,
-    AdminProductAddComponent
+    AdminProductAddComponent,
+    AdminOrdersComponent
   ],
   imports: [
     BrowserModule,

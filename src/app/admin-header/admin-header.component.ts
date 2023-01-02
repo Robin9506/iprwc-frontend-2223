@@ -29,4 +29,8 @@ export class AdminHeaderComponent implements OnInit {
   navigateToPromos(){
     this.router.navigate(['promos'], {relativeTo: this.activatedRoute});
   }
+
+  navigateToOrders(){
+    this.router.navigate(['orders'], {relativeTo: this.activatedRoute});
+  }
 }

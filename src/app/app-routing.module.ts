@@ -12,6 +12,7 @@ import { AdminPromosComponent } from './admin-portal/admin-promos/admin-promos.c
 import { AdminAccountsComponent } from './admin-portal/admin-accounts/admin-accounts.component';
 import { AdminProductEditComponent } from './admin-portal/admin-products/admin-product-edit/admin-product-edit.component';
 import { AdminProductAddComponent } from './admin-portal/admin-products/admin-product-add/admin-product-add.component';
+import { AdminOrdersComponent } from './admin-portal/admin-orders/admin-orders.component';
 
 
 const routes: Routes = [
@@ -28,6 +29,7 @@ const routes: Routes = [
     {path: 'accounts', component: AdminAccountsComponent},
     {path: 'products', component: AdminProductsComponent},
     {path: 'promos', component: AdminPromosComponent},
+    {path: 'orders', component: AdminOrdersComponent},
   ]}
 ];
 

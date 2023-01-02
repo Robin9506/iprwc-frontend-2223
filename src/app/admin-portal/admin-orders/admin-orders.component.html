@@ -1,0 +1,25 @@
+<div class="min-h-screen">
+    <div class="flex justify-center w-full mt-8 font-mono">
+        <div class="w-6/12 ">
+            <div class="font-sans text-ipRed-100">Number of Orders ({{orderList.length}})</div>
+            <table class="w-full divide-y divide-solid bg-white">
+                <thead class="bg-ipRed-100 text-ipBaige h-12">
+                    <tr>
+                        <th>Index</th>
+                        <th>Order ID</th>
+                        <th>Total Price</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody class=" divide-y divide-solid text-center text-ipRed-200 font-bold" *ngFor="let order of orderList; let i = index">
+                    <tr class="h-16 text-lg">
+                        <td>{{i + 1}}</td>
+                        <td>{{order.orderId}}</td>
+                        <td>€{{order.totalPrice | number : '1.2-2'}}</td>
+                        <td>{{order.date | date:'dd-MM-yy'}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
