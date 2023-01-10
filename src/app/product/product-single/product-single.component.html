@@ -1,0 +1,73 @@
+<div class="flex justify-center items-center">
+    <div class="w-3/5 h-[90vh] flex">
+        <div class="w-3/4 ml-24 mt-12 ">
+            <div class="productName">
+            <p *ngIf="productName.length === 0">Name</p>
+            <p>{{productName}}</p>
+        </div>
+        <div class="text-ipNight text-sm font-medium mb-6 ml-0.5"> 
+            <p>
+                [{{productCompany}} - {{productPlatform}}]
+            </p>
+                
+        </div> 
+        
+        
+        <div>
+            <img class=" max-h-[100%] h-128 w-[90%]" src="{{productImageLink}}" alt=""/>
+        </div>
+        <div class="productRating">
+            <p class="text-3xl font-medium text-yellow-500"  *ngFor="let number of getProductRating(productRating)">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd" />
+              </svg>                             
+            </p>
+            <p class="text-3xl font-medium text-gray-500"  *ngFor="let number of getNonRating(productRating)">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-6 h-6">
+                  <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z" clip-rule="evenodd" />
+                </svg>                             
+            </p>
+            <p class="ml-1 font-bold">
+                ({{productRating}})
+            </p>
+        </div>  
+           
+    </div>
+    <div class="w-full mt-64 ">
+        
+          <div *ngIf="productPrice >= 0" class="productPrice">
+              <p>{{productPrice | currency:'EUR'}}</p>
+          </div>
+          
+          <div class="productDescription">
+              <p>{{productDescription}}</p>
+              <div class="w-96 h-48 mt-24">
+                  <button (click)="addSingleProductToCart()" class=" w-80 h-24 mr-8 border-b-4 border-ipGrue2 bg-ipGrue rounded-xl text-ipBaige hover:bg-ipGrue2">
+                      <p class="flex justify-center text-2xl">ADD TO CART</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        
+    </div>
+</div>
+<div class="w-full flex justify-center items-center">
+    <div class="w-3/5 bg-ipRed-100 text-ipBaige h-12 text-xl p-2">
+        <p class="flex justify-center items-center">Specifications</p>
+    </div>
+</div>
+<div class="w-full flex justify-center items-center">
+    <div class="w-3/5 flex justify-center items-center">
+        <dl class="text-center text-ipNight font-bold"> 
+            <dt>Name</dt>
+            <dd>{{productName}}</dd>
+            <dt>Company</dt>
+            <dd>{{productCompany}}</dd>
+            <dt>Platform</dt>
+            <dd>{{productPlatform}}</dd>
+            <dt>Rating</dt>
+            <dd>{{productRating}}</dd>
+        </dl>
+    </div>
+</div>

@@ -31,10 +31,6 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['product']);
   }
 
-  navigateToAboutUs(){
-    this.router.navigate(['product']);
-  }
-
   navigateToLogin(){
     this.router.navigate(['login']);
   }
@@ -43,8 +39,8 @@ export class HeaderComponent implements OnInit {
     this.router.navigate(['cart']);
   }
 
-  navigateToProfile(){
-    this.router.navigate(['profile']);
+  navigateToMyAccount(){
+    this.router.navigate(['customer']);
   }
 
   navigateToAdmin(){

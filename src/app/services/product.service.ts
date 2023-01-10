@@ -33,6 +33,10 @@ export class ProductService {
     return this.products;
   }
 
+  addProduct(product: Product){
+    this.products.push(product);
+  }
+
   getSingleProduct(productId: number){
     let product: Product = new Product(0 ,"", 0, "", "", "", 0,"");
     this.products.filter(product => 
@@ -70,6 +74,11 @@ export class ProductService {
     this.products = this.products.filter(function( obj ) {
       return obj.id !== productId;
     })
+  }
+
+  editProduct(product: Product, id: number){
+    console.log(product);
+    console.log(id);
   }
 
 }

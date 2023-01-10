@@ -7,6 +7,7 @@
                     <tr>
                         <th>Index</th>
                         <th>Order ID</th>
+                        <th>Account ID</th>
                         <th>Total Price</th>
                         <th>Date</th>
                     </tr>
@@ -15,6 +16,7 @@
                     <tr class="h-16 text-lg">
                         <td>{{i + 1}}</td>
                         <td>{{order.orderId}}</td>
+                        <td>{{order.accountId}}</td>
                         <td>€{{order.totalPrice | number : '1.2-2'}}</td>
                         <td>{{order.date | date:'dd-MM-yy'}}</td>
                     </tr>

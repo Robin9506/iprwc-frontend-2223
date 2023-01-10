@@ -16,7 +16,7 @@ import { ProductSortComponent } from './product/product-sort/product-sort.compon
 import { TruncatePipe } from './pipe/truncate.pipe';
 import { CartThumbnailComponent } from './cart/cart-thumbnail/cart-thumbnail.component';
 import { PromoCodeComponent } from './cart/promo-code/promo-code.component';
-import { ProfileComponent } from './profile/profile.component';
+import { ProfileComponent } from './customer-portal/profile/profile.component';
 import { UnderHeaderComponent } from './header/under-header/under-header.component';
 import { AdminPortalComponent } from './admin-portal/admin-portal.component';
 import { AdminProductsComponent } from './admin-portal/admin-products/admin-products.component';
@@ -28,6 +28,11 @@ import { ModalComponent } from './modal/modal.component';
 import { FooterComponent } from './footer/footer.component';
 import { AdminProductAddComponent } from './admin-portal/admin-products/admin-product-add/admin-product-add.component';
 import { AdminOrdersComponent } from './admin-portal/admin-orders/admin-orders.component';
+import { SignUpComponent } from './login/sign-up/sign-up.component';
+import { ProductSingleComponent } from './product/product-single/product-single.component';
+import { CustomerPortalComponent } from './customer-portal/customer-portal.component';
+import { CustomerHeaderComponent } from './customer-portal/customer-header/customer-header.component';
+import { CustomerOrdersComponent } from './customer-portal/customer-orders/customer-orders.component';
 
 
 @NgModule({
@@ -56,7 +61,12 @@ import { AdminOrdersComponent } from './admin-portal/admin-orders/admin-orders.c
     ModalComponent,
     FooterComponent,
     AdminProductAddComponent,
-    AdminOrdersComponent
+    AdminOrdersComponent,
+    SignUpComponent,
+    ProductSingleComponent,
+    CustomerPortalComponent,
+    CustomerHeaderComponent,
+    CustomerOrdersComponent
   ],
   imports: [
     BrowserModule,

@@ -49,7 +49,7 @@
         <h1 class="mt-8">Edit Product</h1>
         <div class="mt-20 h-4/5 w-full flex items-center justify-center">
             
-            <form (ngSubmit)="editProduct(editForm, id)" #editForm="ngForm">
+            <form #editForm="ngForm">
                 <div class="w-96">
                     <div class="inputField">
                         <label class="label">Name</label>
@@ -79,8 +79,8 @@
                         <label class="label">Platform</label>
                         <input class="editInput" type="text" name="productPlatform" [(ngModel)]="productPlatform">
                     </div>
-                    <div class="submitButton mt-8 mb-6">
-                        <button  type="submit">Submit</button>
+                    <div class="submitButton mt-8 mb-6" (click)="editProduct(id)">
+                        <button type="submit" >Submit</button>
                     </div>
                 </div>
                 

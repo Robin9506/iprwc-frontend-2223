@@ -2,7 +2,7 @@
     <div class="grid grid-cols-1 gap-x-12 gap-y-5 w-8/12"> 
       <div class="flex shadow-xl rounded-sm bg-white border-2 border-ipGrue hover:border-ipGrue2" *ngFor="let item of productList">
         <div class="h-full w-48 border-r-2 border-ipGrue">
-          <a href="#!">
+          <a class="hover:cursor-pointer" (click)="navigateToSingleProduct(item.id)">
             <img class=" max-h-[100%] h-64 w-full" src="{{item.imageLink}}" alt=""/>
           </a>
         </div>
@@ -11,7 +11,7 @@
             <h5 class="text-ipNight text-xs font-medium"> 
               {{item.company}} - {{item.platform}}
             </h5>
-            <h5 class="text-ipNight text-2xl font-medium hover:cursor-pointer hover:underline"> 
+            <h5 class="text-ipNight text-2xl font-medium hover:cursor-pointer hover:underline" (click)="navigateToSingleProduct(item.id)"> 
               {{item.name}}
             </h5>
             <p class="text-3xl font-medium text-ipRed-200">

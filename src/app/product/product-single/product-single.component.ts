@@ -1,15 +1,15 @@
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
-import { FormControl, FormGroup, NgForm } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from 'src/app/models/product.model';
+import { CartService } from 'src/app/services/cart.service';
 import { ProductService } from 'src/app/services/product.service';
 
 @Component({
-  selector: 'app-admin-product-edit',
-  templateUrl: './admin-product-edit.component.html',
-  styleUrls: ['./admin-product-edit.component.scss']
+  selector: 'app-product-single',
+  templateUrl: './product-single.component.html',
+  styleUrls: ['./product-single.component.scss']
 })
-export class AdminProductEditComponent implements OnInit{
+export class ProductSingleComponent implements OnInit {
   product: Product;
   id: number = 0;
 
@@ -21,17 +21,14 @@ export class AdminProductEditComponent implements OnInit{
   productRating: number = 0;
   productPlatform: string = '';
 
-
-
-  constructor(private productService: ProductService, private activatedRoute: ActivatedRoute) { }
+  constructor(private activatedRoute: ActivatedRoute, private productService: ProductService, private cartService: CartService) { }
 
   ngOnInit(): void {
     this.id =+ this.activatedRoute.snapshot.paramMap.get('id')!;
-    this.setFormVariables();
-
+    this.setProductVariables();
   }
 
-  setFormVariables(){
+  setProductVariables(){
     this.product = this.productService.getSingleProduct(this.id)!;
     this.productName = this.product.name;
     this.productPrice = this.product.price;
@@ -42,21 +39,6 @@ export class AdminProductEditComponent implements OnInit{
     this.productPlatform = this.product.platform;
   }
 
-  editProduct(id: number){
-    const editedProduct: Product = new Product(
-      this.id,
-      this.productName,
-      this.productPrice,
-      this.productDescription,
-      this.productCompany,
-      this.productImageLink,
-      this.productRating,
-      this.product.platform
-    );
-
-    this.productService.editProduct(editedProduct, this.id);
-  }
-
   getProductRating(rating: number): Array<number> {
     return Array(rating);
   }
@@ -64,4 +46,9 @@ export class AdminProductEditComponent implements OnInit{
   getNonRating(rating: number): Array<number> {
     return Array(5 - rating);
   }
+
+  addSingleProductToCart(){
+    this.cartService.addToCart(this.product);
+  }
+
 }

@@ -77,7 +77,9 @@ export class CartComponent implements OnInit {
       price = this.discountPrice;
     }
 
-    const order = new Order(orderLength, products, price, Date.now());
+    const accountId= 0;
+
+    const order = new Order(orderLength, accountId, products, price, Date.now());
     this.orderService.placeOrder(order);
 
     // this.cartService.clearCart();

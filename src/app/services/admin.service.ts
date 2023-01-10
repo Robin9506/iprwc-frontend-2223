@@ -19,4 +19,6 @@ export class AdminService{
         return this.productService.getSingleProduct(productId);
     }
 
+    
+
 }

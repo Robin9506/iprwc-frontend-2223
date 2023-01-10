@@ -1,0 +1,39 @@
+<div class="flex justify-center mt-12 drop-shadow-xl">
+    <div class="h-[105vh] w-128 bg-gradient-to-tr from-ipRed-200 to-ipRed-100 rounded-xl">
+        <h1 class="flex justify-center text-white text-3xl mt-12">Sign Up By</h1>
+        <div class="text-white w-full flex justify-center items-center mt-2">
+            <img class="object-scale-down h-20" src="../../assets/rrrlogo.png" alt="">
+        </div>
+        <form class="flex justify-center items-center" #signUpForm="ngForm">
+            <div class="mt-12">
+                <div class="inputField">
+                    <label class="label">Username</label>
+                    <input class="editInput" maxlength="24" placeholder="Username" type="name" name="username" ngModel>
+                </div>
+                <div class="inputField">
+                    <label class="label">Password</label>
+                    <input class="editInput" placeholder="••••••••••••" type="password" name="password" ngModel>
+                </div>
+                <div class="inputField">
+                    <label class="label">Confirm Password</label>
+                    <input class="editInput" placeholder="••••••••••••" type="password" name="confirmPassword" ngModel>
+                </div>
+                <div class="inputField">
+                    <label class="label">Address</label>
+                    <input class="editInput" maxlength="24" placeholder="Address" type="name" name="address" ngModel>
+                </div>
+                <div class="inputField">
+                    <label class="label">City</label>
+                    <input class="editInput" maxlength="24" placeholder="City" type="name" name="city" ngModel>
+                </div>
+                <div class="inputField">
+                    <label class="label">Country</label>
+                    <input class="editInput" maxlength="24" placeholder="Country" type="name" name="country" ngModel>
+                </div>
+                <div class="submitButton" (click)="createAccount(signUpForm)">
+                    <button type="submit">Sign Up</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
