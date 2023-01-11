@@ -33,6 +33,18 @@ export class ProductService {
     return this.products;
   }
 
+  getFeaturedProducts(){
+    const featuredProducts: Product[] = [];
+
+    for (let index = 0; index < 5; index++) {
+      const element = this.products[index];
+
+      featuredProducts.push(element); 
+    }
+
+    return featuredProducts;
+  }
+
   addProduct(product: Product){
     this.products.push(product);
   }

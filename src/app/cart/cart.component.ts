@@ -1,4 +1,5 @@
 import { Component, OnInit} from '@angular/core';
+import { Router } from '@angular/router';
 import { Cart } from '../models/cart.model';
 import { Order } from '../models/order.model';
 import { Product } from '../models/product.model';
@@ -17,7 +18,11 @@ export class CartComponent implements OnInit {
   discountPrice: number = 0;
   promoDiscount: number = 0;
 
-  constructor(private cartService: CartService, private orderService: OrderService, private authService: AuthService) { }
+  constructor(
+    private cartService: CartService, 
+    private orderService: OrderService, 
+    private authService: AuthService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.getCartItems();
@@ -85,6 +90,8 @@ export class CartComponent implements OnInit {
 
     const order = new Order(orderLength, +accountId!, products, price, Date.now());
     this.orderService.placeOrder(order);
+
+    this.router.navigate(["checkout"]);
 
     // this.cartService.clearCart();
     // this.getCartItems();

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { CartComponent } from './cart.component';
 import { CartThumbnailComponent } from './cart-thumbnail/cart-thumbnail.component';
 import { PromoCodeComponent } from './promo-code/promo-code.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 
 
@@ -10,7 +11,8 @@ import { PromoCodeComponent } from './promo-code/promo-code.component';
   declarations: [
     CartComponent,
     CartThumbnailComponent,
-    PromoCodeComponent
+    PromoCodeComponent,
+    CheckoutComponent
   ],
   imports: [
     CommonModule

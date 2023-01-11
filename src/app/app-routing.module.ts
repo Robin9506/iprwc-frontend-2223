@@ -17,6 +17,7 @@ import { SignUpComponent } from './login/sign-up/sign-up.component';
 import { ProductSingleComponent } from './product/product-single/product-single.component';
 import { CustomerPortalComponent } from './customer-portal/customer-portal.component';
 import { CustomerOrdersComponent } from './customer-portal/customer-orders/customer-orders.component';
+import { CheckoutComponent } from './cart/checkout/checkout.component';
 
 
 const routes: Routes = [
@@ -27,12 +28,12 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'signup', component: SignUpComponent},
   { path: 'cart', component: CartComponent},
+  { path: 'checkout', component: CheckoutComponent},
   { path: 'customer', component: CustomerPortalComponent, children: [
     {path: '', component: ProfileComponent},
     {path: 'profile', component: ProfileComponent},
     {path: 'my-orders', component: CustomerOrdersComponent},
   ]},
-  { path: 'profile', component: ProfileComponent},
   { path: 'product-add', component: AdminProductAddComponent},
   { path: 'product-edit/:id', component: AdminProductEditComponent},
   { path: 'admin', component: AdminPortalComponent, children: [
