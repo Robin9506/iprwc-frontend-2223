@@ -7,11 +7,37 @@ import { Account } from "../models/account.model";
   })
 export class AccountService{
     private accounts = [
-        new Account("rob", "123", Role.ADMIN, "jan de straat 8", "leiden", "Nederland")
+        new Account(1, "rob", "123", Role.ADMIN, "jan de straat 8", "leiden", "Nederland")
     ]
 
     getAccounts(){
         return this.accounts;
+    }
+
+    getAccountBasedOnCredentials(username: string, password: string){
+        for (let account = 0; account < this.accounts.length; account++) {
+            if(this.accounts[account].username === username && this.accounts[account].password === password){
+                return this.accounts[account].id;
+            }    
+        }
+        return -1;
+    }
+
+    getAccountById(id: number){
+        let account: Account = new Account(0 ,"", "", Role.CUSTOMER, "", "", "");
+        this.accounts.filter(account => 
+          account.id === id)
+                .map(item => 
+                  account = new Account(
+                    item.id,
+                    item.username, 
+                    item.password, 
+                    item.role, 
+                    item.address, 
+                    item.city, 
+                    item.country));
+          
+                    return account;
     }
 
     createAccountInService(account: Account){
@@ -22,6 +48,7 @@ export class AccountService{
         const accountCountry: string = account.country;
 
         const newAccount: Account = new Account(
+            this.accounts.length,
             accountName, 
             accountPassword, 
             account.role, 

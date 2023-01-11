@@ -29,6 +29,7 @@ export class SignUpComponent implements OnInit {
     const accountCountry: string = signUpForm.value.country;
 
     const newAccount = new Account(
+      0,
       accountName,
       accountPassword,
       accountRole,

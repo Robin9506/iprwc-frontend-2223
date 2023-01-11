@@ -2,6 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import { Cart } from '../models/cart.model';
 import { Order } from '../models/order.model';
 import { Product } from '../models/product.model';
+import { AuthService } from '../services/auth.service';
 import { CartService } from '../services/cart.service';
 import { OrderService } from '../services/order.service';
 
@@ -16,7 +17,7 @@ export class CartComponent implements OnInit {
   discountPrice: number = 0;
   promoDiscount: number = 0;
 
-  constructor(private cartService: CartService, private orderService: OrderService) { }
+  constructor(private cartService: CartService, private orderService: OrderService, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.getCartItems();
@@ -63,6 +64,9 @@ export class CartComponent implements OnInit {
   }
 
   checkoutItems(){
+    if(this.authService.isLoggedIn === false){
+      return;
+    }
     const orderLength = this.orderService.getOrders().length + 1;
     const products: Product[] = [];
 
@@ -77,9 +81,9 @@ export class CartComponent implements OnInit {
       price = this.discountPrice;
     }
 
-    const accountId= 0;
+    const accountId = localStorage.getItem('accountId');
 
-    const order = new Order(orderLength, accountId, products, price, Date.now());
+    const order = new Order(orderLength, +accountId!, products, price, Date.now());
     this.orderService.placeOrder(order);
 
     // this.cartService.clearCart();

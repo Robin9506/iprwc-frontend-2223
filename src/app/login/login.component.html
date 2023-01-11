@@ -4,17 +4,17 @@
         <div class="text-white w-full flex justify-center items-center">
             <img class="object-scale-down h-20" src="../../assets/rrrlogo.png" alt="">
         </div>
-        <form class="flex justify-center items-center">
+        <form #loginForm="ngForm" class="flex justify-center items-center">
             <div class="mt-12">
                 <div class="inputField">
                     <label class="label">Username</label>
-                    <input class="editInput" maxlength="24" placeholder="Username" type="name" name="productName">
+                    <input class="editInput" maxlength="24" placeholder="Username" type="name" name="username" ngModel>
                 </div>
                 <div class="inputField">
                     <label class="label">Password</label>
-                    <input class="editInput" placeholder="••••••••••••" type="password" name="productPrice">
+                    <input class="editInput" placeholder="••••••••••••" type="password" name="password" ngModel>
                 </div>
-                <div class="submitButton">
+                <div class="submitButton" (click)="loginInService(loginForm)">
                     <button type="submit">Login</button>
                 </div>
                 <div class="signUp" (click)="navigateToSignUp()">

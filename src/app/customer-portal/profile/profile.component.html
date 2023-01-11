@@ -1,3 +1,27 @@
-<div class="flex justify-center w-full mt-8 font-mono">
-    <p>profile works!</p>
+<div *ngIf="this.id !== 0">
+    <div class="w-full flex justify-center items-center" >
+        <div class="w-3/5 bg-ipRed-100 text-ipBaige h-12 text-xl p-2">
+            <p class="flex justify-center items-center">Account Details</p>
+        </div>
+    </div>
+<div class="w-full flex justify-center items-center">
+    <div class="w-3/5 flex justify-center items-center">
+        <dl class="text-center text-ipNight font-bold"> 
+            <dt>Username</dt>
+            <dd>{{account.username}}</dd>
+            <dt>Role</dt>
+            <dd>{{account.role | role | titlecase}}</dd>
+            <dt>Address</dt>
+            <dd>{{account.address | titlecase}}</dd>
+            <dt>City</dt>
+            <dd>{{account.city | titlecase}}</dd>
+            <dt>Country</dt>
+            <dd>{{account.country | titlecase}}</dd>
+        </dl>
+    </div>
+</div>
+</div>
+
+<div class="w-full flex justify-center items-center" *ngIf="this.id === 0">
+    <p>User NOT LOGGED IN</p>
 </div>

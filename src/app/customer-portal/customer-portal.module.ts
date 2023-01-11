@@ -6,6 +6,7 @@ import { CustomerHeaderComponent } from './customer-header/customer-header.compo
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { ProfileComponent } from './profile/profile.component';
+import { RolePipe } from '../pipe/enum.pipe';
 
 
 
@@ -14,7 +15,8 @@ import { ProfileComponent } from './profile/profile.component';
     CustomerPortalComponent,
     CustomerHeaderComponent,
     CustomerOrdersComponent,
-    ProfileComponent
+    ProfileComponent,
+    RolePipe
   ],
   imports: [
     BrowserModule,

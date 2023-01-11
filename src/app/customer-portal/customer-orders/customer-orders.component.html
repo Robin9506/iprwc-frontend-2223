@@ -1,3 +1,38 @@
 <div class="flex justify-center w-full mt-8 font-mono">
-    <p>customer-orders works!</p>
+    <div class="flex justify-center w-full mt-8 font-mono">
+        <div class="w-6/12 ">
+            <div class="font-sans text-ipRed-100">Number of Orders ({{this.orders.length}})</div>
+            <table class="w-full divide-y divide-solid bg-white">
+                <thead class="bg-ipRed-100 text-ipBaige h-12">
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Account ID</th>
+                        <th>Products</th>
+                        <th>Product Prices</th>
+                        <th>Total Price</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody class=" divide-y divide-solid text-center text-ipNight font-bold" *ngFor="let order of this.orders; let i = index">
+                    <tr class="h-16 text-lg">
+                        <td>{{order.orderId}}</td>
+                        <td>{{order.accountId}}</td>
+                        <td>
+                            <p *ngFor="let product of order.products; let i = index">
+                                {{product.name}}
+                            </p>
+                        </td>
+                        <td>
+                            <p *ngFor="let product of order.products; let i = index">
+                                €{{product.price | number : '1.2-2'}}
+                            </p>
+                        </td>
+                        <td>{{order.totalPrice}}</td>
+                        <td>{{order.date | date:'dd-MM-yy'}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
+            

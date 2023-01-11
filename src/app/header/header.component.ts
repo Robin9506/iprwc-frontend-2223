@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Cart } from '../models/cart.model';
+import { AuthService } from '../services/auth.service';
 import { CartService } from '../services/cart.service';
 
 @Component({
@@ -10,10 +11,12 @@ import { CartService } from '../services/cart.service';
 })
 export class HeaderComponent implements OnInit {
   amountInCart: number = 0;
+  isLogginIn: boolean = false;
 
-  constructor(private router: Router, private cartService: CartService) { }
+  constructor(private router: Router, private cartService: CartService, public authService: AuthService) { }
 
   ngOnInit(): void {
+    this.isLogginIn = this.authService.isLoggedIn;
     this.amountInCart = this.cartService.getCurrentAmountInCart();
     this.cartService.getCartSubject().subscribe({
       next: (cartItems: Cart[]) => {
@@ -21,6 +24,10 @@ export class HeaderComponent implements OnInit {
       }
     })
     console.log(this.cartService.getCurrentAmountInCart());
+  }
+
+  logout(){
+    this.authService.logoutUser();
   }
 
   navigateToHome(){

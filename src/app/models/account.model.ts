@@ -1,6 +1,7 @@
 import { Role } from "../enums/role.enums";
 
 export class Account{
+    private _id: number;
     private _username: string;
     private _password: string;
     private _role: Role;
@@ -9,13 +10,22 @@ export class Account{
     private _country: string;
 
 
-    constructor(username: string, password: string, role: Role, address: string, city: string, country: string){
+    constructor(id: number, username: string, password: string, role: Role, address: string, city: string, country: string){
+        this._id = id;
         this._username = username;
         this._password = password;
         this._role = role;
         this._address = address;
         this._city = city;
         this._country  = country;
+    }
+
+    public get id(){
+        return this._id;
+    }
+
+    public set id(value: number){
+        this._id = value;
     }
 
     public get username(){
