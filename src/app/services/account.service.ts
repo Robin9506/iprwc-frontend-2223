@@ -48,7 +48,7 @@ export class AccountService{
         const accountCountry: string = account.country;
 
         const newAccount: Account = new Account(
-            this.accounts.length,
+            this.accounts.length + 1,
             accountName, 
             accountPassword, 
             account.role, 

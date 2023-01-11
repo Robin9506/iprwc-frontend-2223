@@ -11,12 +11,12 @@ import { CartService } from '../services/cart.service';
 })
 export class HeaderComponent implements OnInit {
   amountInCart: number = 0;
-  isLogginIn: boolean = false;
+  isLoggedIn: boolean = false;
 
   constructor(private router: Router, private cartService: CartService, public authService: AuthService) { }
 
   ngOnInit(): void {
-    this.isLogginIn = this.authService.isLoggedIn;
+    this.isLoggedIn = this.authService.isLoggedIn;
     this.amountInCart = this.cartService.getCurrentAmountInCart();
     this.cartService.getCartSubject().subscribe({
       next: (cartItems: Cart[]) => {
