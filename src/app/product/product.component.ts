@@ -16,8 +16,15 @@ export class ProductComponent implements OnInit{
   constructor(private productService: ProductService) { }
   
   ngOnInit(): void {
-    this.getProducts();   
-    this.filteredProducts = this.productService.getProducts();
+    this.productService.getProductsByServer().subscribe({
+      next: (products: Product[]) => {
+        this.products = products;
+        this.filteredProducts = products;
+      },
+      complete: () =>{
+        console.log(this.products);
+      }
+    });
   }
 
   ngDoCheck(){
@@ -29,7 +36,7 @@ export class ProductComponent implements OnInit{
   }
   
   onFilterSelected(filterObject: Filter){
-    this.filteredProducts = this.productService.getProductsByFilter(filterObject);
+    this.filteredProducts = this.productService.getProductsByFilter(filterObject, this.filteredProducts);
   }
   
   onSortSelected(sort: Sort){

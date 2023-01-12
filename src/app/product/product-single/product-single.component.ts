@@ -11,7 +11,7 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class ProductSingleComponent implements OnInit {
   product: Product;
-  id: number = 0;
+  id: string = "";
 
   productName: string = '';
   productPrice: number = 0;
@@ -24,12 +24,25 @@ export class ProductSingleComponent implements OnInit {
   constructor(private activatedRoute: ActivatedRoute, private productService: ProductService, private cartService: CartService) { }
 
   ngOnInit(): void {
-    this.id =+ this.activatedRoute.snapshot.paramMap.get('id')!;
-    this.setProductVariables();
+    this.id = this.activatedRoute.snapshot.paramMap.get('id')!;
+    this.getSingleProduct();
+  }
+
+  getSingleProduct(){
+    this.productService.getSingleProductFromServer(this.id).subscribe({
+      next: (product: Product) => {
+        this.product = product;
+      },
+      complete: () => {
+        this.setProductVariables();
+        console.log(this.product);
+      } 
+      
+    });
+    
   }
 
   setProductVariables(){
-    this.product = this.productService.getSingleProduct(this.id)!;
     this.productName = this.product.name;
     this.productPrice = this.product.price;
     this.productDescription = this.product.description;

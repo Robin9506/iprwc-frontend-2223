@@ -14,9 +14,9 @@ export class CustomerOrdersComponent implements OnInit {
   constructor(private orderService: OrderService) { }
 
   ngOnInit(): void {
-    const id = localStorage.getItem('accountId');
-    this.id =+ id!;
-    this.orders = this.orderService.getAllOrdersByAccountId(this.id);
+    // const id = localStorage.getItem('accountId');
+    // this.id =+ id!;
+    // this.orders = this.orderService.getAllOrdersByAccountId(this.id);
   }
 
 }

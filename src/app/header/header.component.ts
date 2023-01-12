@@ -23,11 +23,11 @@ export class HeaderComponent implements OnInit {
         this.amountInCart = cartItems.length;
       }
     })
-    console.log(this.cartService.getCurrentAmountInCart());
   }
 
   logout(){
     this.authService.logoutUser();
+    this.navigateToHome();
   }
 
   navigateToHome(){

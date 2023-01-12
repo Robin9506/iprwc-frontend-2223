@@ -14,15 +14,23 @@ export class HomeComponent implements OnInit {
   constructor(private router: Router, private productService: ProductService) { }
 
   ngOnInit(): void {
-    this.featuredProducts = this.productService.getFeaturedProducts();
+    this.productService.getProductsByServer().subscribe({
+      next: (products: Product[]) =>{
+        let featuredProducts: Product[] = [];
+        featuredProducts = products.slice(0,5);
+
+        this.featuredProducts = featuredProducts;
+
+      }
+    });
   }
 
   navigateToProducts(){
     this.router.navigate(["product"]);
   }
 
-  navigateToSingleProduct(id: number){
-    this.router.navigate(["product/" + id]);
+  navigateToSingleProduct(product: Product){
+    this.router.navigate(["product/" + product.id]);
   }
 
 }

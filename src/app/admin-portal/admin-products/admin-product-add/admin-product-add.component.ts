@@ -17,7 +17,7 @@ export class AdminProductAddComponent implements OnInit {
   productRating: number = 0;
   productPlatform: string = '';
 
-  id = 0;
+  id: string = "";
 
   constructor(private router: Router, private productService: ProductService) { }
 

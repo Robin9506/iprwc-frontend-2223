@@ -27,6 +27,7 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.getCartItems();
     this.calculateTotalPrice();
+    console.log(this.cartItems);
   }
 
   getCartItems(){
@@ -88,7 +89,7 @@ export class CartComponent implements OnInit {
 
     const accountId = localStorage.getItem('accountId');
 
-    const order = new Order(orderLength, +accountId!, products, price, Date.now());
+    const order = new Order(orderLength, accountId!, products, price, Date.now());
     this.orderService.placeOrder(order);
 
     this.router.navigate(["checkout"]);

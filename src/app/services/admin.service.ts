@@ -14,11 +14,4 @@ export class AdminService{
         console.log(this.editing);
         return this.editing;
     }
-
-    getEditableProduct(productId: number){
-        return this.productService.getSingleProduct(productId);
-    }
-
-    
-
 }

@@ -1,5 +1,8 @@
 import { Injectable } from "@angular/core";
+import { Credentials } from "../models/credentials.model";
 import { AccountService } from "./account.service";
+import { HttpService } from "./http.service";
+import { map } from 'rxjs/operators';
 
 @Injectable({
     providedIn: 'root',
@@ -7,18 +10,10 @@ import { AccountService } from "./account.service";
 export class AuthService{
     isLoggedIn: boolean = false;
 
-    constructor(private accountService: AccountService){}
+    constructor(private accountService: AccountService, private httpService: HttpService){}
 
-    loginUser(username: string, password: string){
-      const id = this.accountService.getAccountBasedOnCredentials(username, password);
-
-      if(id > -1){
-        this.isLoggedIn = true;
-        localStorage.setItem('accountId', id.toString());
-      }
-      else{
-        return;
-      } 
+    loginUser(credentials: Credentials){
+      return this.httpService.makePostRequest('/auth', credentials)
     }
 
     logoutUser(){

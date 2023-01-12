@@ -1,4 +1,4 @@
-<div *ngIf="this.id !== 0">
+<div *ngIf="this.id !== ''">
     <div class="w-full flex justify-center items-center" >
         <div class="w-3/5 bg-ipRed-100 text-ipBaige h-12 text-xl p-2">
             <p class="flex justify-center items-center">Account Details</p>
@@ -10,7 +10,7 @@
             <dt>Username</dt>
             <dd>{{account.username}}</dd>
             <dt>Role</dt>
-            <dd>{{account.role | role | titlecase}}</dd>
+            <dd>{{account.role | role}}</dd>
             <dt>Address</dt>
             <dd>{{account.address | titlecase}}</dd>
             <dt>City</dt>
@@ -22,6 +22,6 @@
 </div>
 </div>
 
-<div class="w-full flex justify-center items-center" *ngIf="this.id === 0">
+<div class="w-full flex justify-center items-center" *ngIf="this.id === ''">
     <p>User NOT LOGGED IN</p>
 </div>

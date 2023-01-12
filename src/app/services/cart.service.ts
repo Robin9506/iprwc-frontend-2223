@@ -22,14 +22,14 @@ export class CartService{
                 let itemDescription: Product = productJSON[index]['_product'];
                 let product: Product = 
                 new Product(
-                    itemDescription['_id'],
-                    itemDescription['_name'],
-                    itemDescription['_price'],
-                    itemDescription['_description'],
-                    itemDescription['_company'],
-                    itemDescription['_imageLink'],
+                    itemDescription['id'],
+                    itemDescription['name'],
+                    itemDescription['price'],
+                    itemDescription['description'],
+                    itemDescription['company'],
+                    itemDescription['imageLink'],
                     itemDescription['rating'],
-                    itemDescription['_platform']);
+                    itemDescription['platform']);
 
                 const cartItem = new Cart(product);
                 

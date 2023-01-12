@@ -23,7 +23,7 @@ export class SignUpComponent implements OnInit {
   createAccount(signUpForm: NgForm){
     const accountName: string = signUpForm.value.username;
     const accountPassword: string = signUpForm.value.password;
-    const accountRole: Role = Role.CUSTOMER;
+    const accountRole: Role = Role.USER;
     const accountStreet: string = signUpForm.value.address;
     const accountCity: string = signUpForm.value.city;
     const accountCountry: string = signUpForm.value.country;

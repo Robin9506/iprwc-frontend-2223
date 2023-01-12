@@ -2,12 +2,12 @@ import { Product } from "./product.model";
 
 export class Order{
     private _orderId: number;
-    private _accountId: number;
+    private _accountId: string;
     private _products: Product[];
     private _totalPrice: number;
     private _date: number
 
-    constructor(orderId: number, accountId: number, products: Product[], totalPrice: number, date: number){
+    constructor(orderId: number, accountId: string, products: Product[], totalPrice: number, date: number){
         this._orderId = orderId;
         this._accountId = accountId;
         this._products = products;
@@ -27,7 +27,7 @@ export class Order{
         return this._accountId;
     }
 
-    public set accountId(value: number){
+    public set accountId(value: string){
         this._accountId = value;
     }
     

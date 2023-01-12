@@ -1,32 +1,23 @@
 import { Injectable } from "@angular/core";
 import { Promo } from "../models/promo.model";
+import { HttpService } from "./http.service";
 
 @Injectable({
     providedIn: 'root',
   })
 export class PromoService{
-    private promoCodes: Promo[] = [
-        new Promo("rrr100", 100),
-        new Promo("rrr95", 95),
-        new Promo("iprwc", 75),
-        new Promo("rrr", 50),
-        new Promo("2023", 10)
-    ];
-    
-    checkPromoCode(promoCode: string){
-        for (let index = 0; index < this.promoCodes.length; index++) {
-            const currentPromo = this.promoCodes[index];
+    private discount: number = 0;
 
-            if(promoCode === currentPromo.code){
-                return this.returnPromoDiscount(currentPromo); 
-            }
-        }
+    constructor(private http: HttpService){}
 
-        return 0;
-
+    getPromoCode(promoCode: string){
+        const promo: Promo = new Promo(promoCode, 0);
+        return this.http.makePostRequest("/promo", promo)
+        
     }
+    
+    returnDiscount(){
+        return this.discount;
 
-    returnPromoDiscount(promo: Promo){
-        return promo.discount;
     }
 }

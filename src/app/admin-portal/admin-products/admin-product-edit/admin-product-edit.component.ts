@@ -11,7 +11,7 @@ import { ProductService } from 'src/app/services/product.service';
 })
 export class AdminProductEditComponent implements OnInit{
   product: Product;
-  id: number = 0;
+  id: string = "";
 
   productName: string = '';
   productPrice: number = 0;
@@ -26,13 +26,26 @@ export class AdminProductEditComponent implements OnInit{
   constructor(private productService: ProductService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.id =+ this.activatedRoute.snapshot.paramMap.get('id')!;
-    this.setFormVariables();
+    this.id = this.activatedRoute.snapshot.paramMap.get('id')!;
+    this.getSingleProduct();
 
   }
 
-  setFormVariables(){
-    this.product = this.productService.getSingleProduct(this.id)!;
+  getSingleProduct(){
+    this.productService.getSingleProductFromServer(this.id).subscribe({
+      next: (product: Product) => {
+        this.product = product;
+      },
+      complete: () => {
+        this.setProductVariables();
+        console.log(this.product);
+      } 
+      
+    });
+    
+  }
+
+  setProductVariables(){
     this.productName = this.product.name;
     this.productPrice = this.product.price;
     this.productDescription = this.product.description;
@@ -42,7 +55,7 @@ export class AdminProductEditComponent implements OnInit{
     this.productPlatform = this.product.platform;
   }
 
-  editProduct(id: number){
+  editProduct(id: string){
     const editedProduct: Product = new Product(
       this.id,
       this.productName,
@@ -54,7 +67,7 @@ export class AdminProductEditComponent implements OnInit{
       this.product.platform
     );
 
-    this.productService.editProduct(editedProduct, this.id);
+    this.productService.editProduct(editedProduct, id).subscribe();
   }
 
   getProductRating(rating: number): Array<number> {

@@ -28,8 +28,8 @@ export class ProductDetailComponent implements OnInit {
     return Array(5 - item.rating);
   }
 
-  navigateToSingleProduct(id: number){
-    this.router.navigate(["product/" + id]);
+  navigateToSingleProduct(product: Product){
+    this.router.navigate(["product/" + product.id]);
   }
 
 

@@ -19,19 +19,37 @@ export class PromoCodeComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  enterCode(promoCode: string){
-    const discount: number = this.promoService.checkPromoCode(promoCode);
+  enterCode(promoCode: string){    
+    if(promoCode === "") {
+      return;
+    }
 
-    if(discount > 0){
+    this.promoService.getPromoCode(promoCode).subscribe({
+      next: (promoDiscount) =>{
+          this.currentDiscount = promoDiscount;
+      },
+      error: (e: Error) => {
+          this.currentDiscount = 0;
+          console.log("No Promo")
+      },
+      complete: () => {
+          this.setCode(promoCode);
+      }
+  });;    
+
+   
+
+  }
+
+  setCode(promoCode: string){
+    if(this.currentDiscount > 0){
       this.currentPromoCode = promoCode;
-      this.currentDiscount = discount;
       this.hasDiscount = true;
       this.code.emit(this.currentDiscount);
     }
     else{
       this.hasDiscount = false;
     }
-
   }
 
   removeCode(){

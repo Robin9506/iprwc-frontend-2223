@@ -15,9 +15,7 @@ editing: boolean = false;
 
   constructor(
     private productService: ProductService, 
-    private adminService: AdminService,
-    private router: Router, 
-    private activatedRoute: ActivatedRoute) { }
+    private router: Router) { }
 
   ngOnInit(): void {
     this.refreshProductList();
@@ -25,10 +23,15 @@ editing: boolean = false;
   }
 
   refreshProductList(){
-    this.productList = this.productService.getProducts();
+    this.productService.getProductsByServer().subscribe({
+      next: (products: Product[]) =>{
+        this.productList = products;
+      }
+    });
+    
   }
 
-  navigateToEditProduct(productId: number){
+  navigateToEditProduct(productId: string){
     this.editing = true;
     this.router.navigate(['product-edit/' + productId]);
   }
@@ -38,9 +41,12 @@ editing: boolean = false;
     this.router.navigate(['product-add/']);
   }
 
-  deleteProduct(productId: number){
-    this.productService.deleteProduct(productId);
-    this.refreshProductList();
+  deleteProduct(productId: string){
+    this.productService.deleteProduct(productId).subscribe({
+      complete: () => {
+        this.refreshProductList();
+      }
+    });
   }
 
 }

@@ -11,14 +11,29 @@ import { AccountService } from 'src/app/services/account.service';
 export class ProfileComponent implements OnInit {
   account: Account
   role: Role;
-  id: number = 0;
+  id: string = "";
+
+  isLoading: boolean = false;
 
   constructor(private accountService: AccountService) { }
 
   ngOnInit(): void {
-    const id = localStorage.getItem('accountId');
-    this.id =+ id!;
-    this.account = this.accountService.getAccountById(this.id)!;
+    this.getProfile();    
+    
   }
 
+  getProfile(){
+    this.id = localStorage.getItem('accountId')!;
+    this.accountService.getAccountsFromServerById(this.id).subscribe({
+      next: (account: Account) => {
+        this.account = account;
+        this.role = account.role;
+      },
+      error: () => {
+        console.log("sup");
+      },
+      complete: () => {
+      }
+    });
+  }
 }

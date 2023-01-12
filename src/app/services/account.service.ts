@@ -1,6 +1,10 @@
 import { Injectable } from "@angular/core";
+import { environment } from "src/environments/environment.prod";
 import { Role } from "../enums/role.enums";
 import { Account } from "../models/account.model";
+import { HttpService } from "./http.service";
+import { Credentials } from "../models/credentials.model";
+
 
 @Injectable({
     providedIn: 'root',
@@ -9,9 +13,21 @@ export class AccountService{
     private accounts = [
         new Account(1, "rob", "123", Role.ADMIN, "jan de straat 8", "leiden", "Nederland")
     ]
+    private account: Account;
+
+    constructor(private httpService: HttpService){}
+    
 
     getAccounts(){
         return this.accounts;
+    }
+
+    getAccountsFromServerById(id: string){
+        return this.httpService.makeGetRequest('/account/' + id)
+    }
+
+    getAccountsFromServer(){
+        this.httpService.makeGetRequest('/account').subscribe(accounts => this.accounts = accounts);
     }
 
     getAccountBasedOnCredentials(username: string, password: string){
@@ -21,23 +37,6 @@ export class AccountService{
             }    
         }
         return -1;
-    }
-
-    getAccountById(id: number){
-        let account: Account = new Account(0 ,"", "", Role.CUSTOMER, "", "", "");
-        this.accounts.filter(account => 
-          account.id === id)
-                .map(item => 
-                  account = new Account(
-                    item.id,
-                    item.username, 
-                    item.password, 
-                    item.role, 
-                    item.address, 
-                    item.city, 
-                    item.country));
-          
-                    return account;
     }
 
     createAccountInService(account: Account){
@@ -56,11 +55,11 @@ export class AccountService{
             accountCity, 
             accountCountry);
 
-        this.accounts.push(newAccount);
+        this.httpService.makePostRequest(environment.apiUrl + '/account', newAccount).subscribe();
 
         
         
-        console.log(this.accounts);
+        console.log(newAccount);
     }
 
 }
