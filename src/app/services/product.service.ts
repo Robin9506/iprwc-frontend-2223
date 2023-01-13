@@ -39,6 +39,7 @@ export class ProductService {
     this.httpService.makeGetRequest("/product").subscribe((products) =>{
       this.products = products;
     })
+    
     return this.httpService.makeGetRequest("/product");
   }
 

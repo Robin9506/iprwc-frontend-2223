@@ -23,6 +23,7 @@ export class ProfileComponent implements OnInit {
   }
 
   getProfile(){
+    this.isLoading = true;
     this.id = localStorage.getItem('accountId')!;
     this.accountService.getAccountsFromServerById(this.id).subscribe({
       next: (account: Account) => {
@@ -30,9 +31,9 @@ export class ProfileComponent implements OnInit {
         this.role = account.role;
       },
       error: () => {
-        console.log("sup");
       },
       complete: () => {
+        this.isLoading = false;
       }
     });
   }

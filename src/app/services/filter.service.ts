@@ -12,26 +12,41 @@ export class FilterService{
     ratingFilters: number[] = [];
 
     maxRating: number = 5;
+
+    products: Product[]= [];
     
     constructor(private productService: ProductService){
     }
 
-    getCompanyFilters(){
-        const products = this.productService.getProducts();
-        for (let product = 0; product < products.length; product++) {
-            if(!this.companyFilters.includes(products[product].company)){
-                this.companyFilters.push(products[product].company);           
+    getAllFilters(){
+        this.productService.getProductsByServer().subscribe({
+            next: (products)=> {
+                this.products = products;
+            },
+            complete: () =>{
+                console.log(this.products);
+                this.getCompanyFilters();
+                this.getPlatformFilters();
+                this.getRatingFilters();
+            }
+
+        });
+
+    }
+
+    getCompanyFilters(){     
+        for (let product = 0; product < this.products.length; product++) {
+            if(!this.companyFilters.includes(this.products[product].company)){
+                this.companyFilters.push(this.products[product].company);           
             }
         }
-
         return this.companyFilters;
     }
 
     getPlatformFilters(){
-        const products = this.productService.getProducts();
-        for (let product = 0; product < products.length; product++) {
-            if(!this.platformFilters.includes(products[product].platform)){
-                this.platformFilters.push(products[product].platform);           
+        for (let product = 0; product < this.products.length; product++) {
+            if(!this.platformFilters.includes(this.products[product].platform)){
+                this.platformFilters.push(this.products[product].platform);           
             }
         }
 

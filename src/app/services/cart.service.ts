@@ -22,14 +22,14 @@ export class CartService{
                 let itemDescription: Product = productJSON[index]['_product'];
                 let product: Product = 
                 new Product(
-                    itemDescription['id'],
-                    itemDescription['name'],
-                    itemDescription['price'],
-                    itemDescription['description'],
-                    itemDescription['company'],
-                    itemDescription['imageLink'],
-                    itemDescription['rating'],
-                    itemDescription['platform']);
+                    itemDescription['_id'],
+                    itemDescription['_name'],
+                    itemDescription['_price'],
+                    itemDescription['_description'],
+                    itemDescription['_company'],
+                    itemDescription['_imageLink'],
+                    itemDescription['_rating'],
+                    itemDescription['_platform']);
 
                 const cartItem = new Cart(product);
                 
@@ -42,10 +42,22 @@ export class CartService{
     setCart(){
         this.cart = this.localStorageCart;
         this.cart$.next(this.cart.slice());
+
+        console.log(this.cart);
     }
 
     addToCart(product: Product){
-        const cartItem: Cart = new Cart(product);
+        let productObject: Product = new Product(
+            product.id, 
+            product.name, 
+            product.price, 
+            product.description, 
+            product.company, 
+            product.imageLink,
+            product.rating, 
+            product.platform,
+      );
+        const cartItem: Cart = new Cart(productObject);
         this.localStorageCart.push(cartItem);
         this.setCart();
         
@@ -75,6 +87,4 @@ export class CartService{
         localStorage.removeItem('cartItems');
         this.setCart();
     }
-        
-
 }

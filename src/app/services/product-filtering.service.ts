@@ -101,8 +101,8 @@ export class ProductFilteringService{
 
     compareFilteredProductsArray(firstProductArray: Product[], secondProductArray: Product[]){
             return firstProductArray.filter((product: Product) => {
-                return secondProductArray.find((o: Product) =>{ 
-                    return product.id === o.id;                   
+                return secondProductArray.find((secondProduct: Product) =>{ 
+                    return product.id === secondProduct.id;                   
                 });
             });
 

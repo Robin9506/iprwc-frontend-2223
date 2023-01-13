@@ -16,11 +16,12 @@ export class HeaderComponent implements OnInit {
   constructor(private router: Router, private cartService: CartService, public authService: AuthService) { }
 
   ngOnInit(): void {
-    this.isLoggedIn = this.authService.isLoggedIn;
     this.amountInCart = this.cartService.getCurrentAmountInCart();
     this.cartService.getCartSubject().subscribe({
       next: (cartItems: Cart[]) => {
         this.amountInCart = cartItems.length;
+      },
+      complete: ()=>{
       }
     })
   }
@@ -41,6 +42,14 @@ export class HeaderComponent implements OnInit {
   navigateToLogin(){
     this.router.navigate(['login']);
   }
+
+  // navigateToCart(){
+  //   if(this.authService.isLoggedIn){
+  //     this.router.navigate(['cart']);
+  //   }else{
+  //     this.navigateToLogin();
+  //   }
+  // }
 
   navigateToCart(){
     this.router.navigate(['cart']);

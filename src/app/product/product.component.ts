@@ -12,35 +12,36 @@ import { ProductService } from '../services/product.service';
 export class ProductComponent implements OnInit{
   products: Product[] = [];
   filteredProducts: Product[] = [];
+  isRetrievingProducts: boolean = false;
 
   constructor(private productService: ProductService) { }
   
   ngOnInit(): void {
+    this.getProducts();
+  }
+  
+  getProducts(){
+    this.isRetrievingProducts = true;
     this.productService.getProductsByServer().subscribe({
       next: (products: Product[]) => {
+        console.log(products);
         this.products = products;
         this.filteredProducts = products;
       },
       complete: () =>{
         console.log(this.products);
+        this.isRetrievingProducts = false;
+
       }
     });
   }
-
-  ngDoCheck(){
-
-  }
-  
-  getProducts(){
-    this.products = this.productService.getProducts();
-  }
   
   onFilterSelected(filterObject: Filter){
-    this.filteredProducts = this.productService.getProductsByFilter(filterObject, this.filteredProducts);
+    this.filteredProducts = this.productService.getProductsByFilter(filterObject, this.products);
   }
   
   onSortSelected(sort: Sort){
-    this.filteredProducts = this.productService.getProductsBySort(sort, this.filteredProducts);
+    this.filteredProducts = this.productService.getProductsBySort(sort, this.products);
   }
 
 }

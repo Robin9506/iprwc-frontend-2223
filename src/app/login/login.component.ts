@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { delay } from 'rxjs';
 import { Credentials } from '../models/credentials.model';
 import { AuthService } from '../services/auth.service';
 
@@ -26,7 +27,7 @@ export class LoginComponent implements OnInit {
 
     const credentials: Credentials = new Credentials(this.username, this.password)
 
-    this.authService.loginUser(credentials)
+    this.authService.loginUser(credentials).pipe(delay(750))
     .subscribe({
       next: (account) => {
         if(account !== null){

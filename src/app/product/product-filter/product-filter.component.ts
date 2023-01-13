@@ -26,6 +26,7 @@ export class ProductFilterComponent implements OnInit{
   constructor(private filterService: FilterService) { }
 
   ngOnInit(): void {
+    this.filterService.getAllFilters();
     this.fillProductFilters();
 
   }

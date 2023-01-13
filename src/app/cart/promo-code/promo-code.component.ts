@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { delay } from 'rxjs';
 import { PromoService } from 'src/app/services/promo.service';
 
 @Component({
@@ -12,6 +13,8 @@ export class PromoCodeComponent implements OnInit {
   currentDiscount: number = 0;
   hasDiscount: boolean = false;
 
+  hasEnteredCode: boolean = false;
+
   constructor(private promoService: PromoService) {
 
    }
@@ -24,7 +27,9 @@ export class PromoCodeComponent implements OnInit {
       return;
     }
 
-    this.promoService.getPromoCode(promoCode).subscribe({
+    this.hasEnteredCode = true;
+
+    this.promoService.getPromoCode(promoCode).pipe(delay(750)).subscribe({
       next: (promoDiscount) =>{
           this.currentDiscount = promoDiscount;
       },
@@ -34,6 +39,7 @@ export class PromoCodeComponent implements OnInit {
       },
       complete: () => {
           this.setCode(promoCode);
+          this.hasEnteredCode = false;
       }
   });;    
 
