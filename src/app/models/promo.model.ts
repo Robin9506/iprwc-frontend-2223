@@ -1,11 +1,21 @@
 export class Promo{
+    private _id: string;
     private _code: string;
     private _discount: number;
 
-    constructor(code: string, discount: number){
+    constructor(id: string, code: string, discount: number){
+        this._id = id;
         this._code = code;
         this._discount = discount;
 
+    }
+
+    public get id(){
+        return this._id;
+    }
+
+    public set id(value: string){
+        this._id = value;
     }
 
     public get code(){

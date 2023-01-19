@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
     providedIn: 'root',
   })
 export class AuthService{
-    isLoggedIn: boolean = false;
+    isLoggedIn: boolean = true;
 
     constructor(private accountService: AccountService, private httpService: HttpService){}
 
@@ -18,6 +18,6 @@ export class AuthService{
 
     logoutUser(){
       this.isLoggedIn = false;
-      localStorage.removeItem('accountId');
+      localStorage.removeItem('token');
     }
 }

@@ -13,3 +13,23 @@
 .submitButton{
     @apply flex justify-center w-3/4 hover:bg-ipGrue2 hover:cursor-pointer focus:outline-none text-white bg-ipGrue rounded rounded-full p-3
 }
+
+dl {
+    width: 100%;
+    overflow: hidden;
+    background: white;
+    padding: 0;
+    margin: 0
+  }
+  dt {
+    float: left;
+    width: 45%;
+    padding-top: 10px;
+    margin: 10px;
+  }
+  dd {
+    float: left;
+    width: 45%;
+    padding: 10px;
+    margin: 10px;
+  }

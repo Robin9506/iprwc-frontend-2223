@@ -25,7 +25,7 @@ export class ProfileComponent implements OnInit {
   getProfile(){
     this.isLoading = true;
     this.id = localStorage.getItem('accountId')!;
-    this.accountService.getAccountsFromServerById(this.id).subscribe({
+    this.accountService.getAccountFromServerById(this.id).subscribe({
       next: (account: Account) => {
         this.account = account;
         this.role = account.role;

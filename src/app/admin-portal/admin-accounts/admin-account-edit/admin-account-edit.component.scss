@@ -1,0 +1,43 @@
+.editInput{
+    @apply block w-full p-3 mb-6 text-center rounded rounded-full mt-2 
+}
+
+.editInputDescription{
+    @apply block w-full p-3 mb-6 text-center rounded rounded-lg mt-2 h-48
+}
+
+.inputField{
+    @apply text-center font-bold
+}
+
+.label{
+    @apply text-white
+}
+
+.submitButton{
+    @apply flex justify-center hover:bg-ipGrue2 hover:cursor-pointer focus:outline-none text-white bg-ipGrue rounded rounded-full p-3
+}
+
+h1{
+    @apply flex items-center justify-center text-lg font-mono text-white font-bold
+}
+
+dl {
+    width: 100%;
+    overflow: hidden;
+    background: white;
+    padding: 0;
+    margin: 0
+  }
+  dt {
+    float: left;
+    width: 45%;
+    padding-top: 10px;
+    margin: 10px;
+  }
+  dd {
+    float: left;
+    width: 45%;
+    padding: 10px;
+    margin: 10px;
+  }

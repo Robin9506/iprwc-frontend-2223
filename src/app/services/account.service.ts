@@ -11,7 +11,7 @@ import { Credentials } from "../models/credentials.model";
   })
 export class AccountService{
     private accounts = [
-        new Account(1, "rob", "123", Role.ADMIN, "jan de straat 8", "leiden", "Nederland")
+        new Account("", "rob", "123", Role.ADMIN, "jan de straat 8", "leiden", "Nederland")
     ]
     private account: Account;
 
@@ -22,13 +22,21 @@ export class AccountService{
         return this.accounts;
     }
 
-    getAccountsFromServerById(id: string){
+    getAccountFromServerById(id: string){
         return this.httpService.makeGetRequest('/account/' + id)
     }
 
     getAccountsFromServer(){
-        this.httpService.makeGetRequest('/account').subscribe(accounts => this.accounts = accounts);
+        return this.httpService.makeGetRequest('/account');
     }
+
+    deleteAccount(id: string){
+        return this.httpService.makeDeleteRequest('/account/' + id);
+    }
+
+    editAccount(account: Account, id: string){
+        return this.httpService.makePutRequest("/account/" + id , account);
+      }
 
     getAccountBasedOnCredentials(username: string, password: string){
         for (let account = 0; account < this.accounts.length; account++) {
@@ -47,7 +55,7 @@ export class AccountService{
         const accountCountry: string = account.country;
 
         const newAccount: Account = new Account(
-            this.accounts.length + 1,
+            "",
             accountName, 
             accountPassword, 
             account.role, 
@@ -55,7 +63,7 @@ export class AccountService{
             accountCity, 
             accountCountry);
 
-        this.httpService.makePostRequest(environment.apiUrl + '/account', newAccount).subscribe();
+        this.httpService.makePostRequest('/account', newAccount).subscribe();
 
         
         

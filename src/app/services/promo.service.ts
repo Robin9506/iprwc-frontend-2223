@@ -10,10 +10,31 @@ export class PromoService{
 
     constructor(private http: HttpService){}
 
+    addPromoToServer(promo: Promo){
+        return this.http.makePostRequest("/promo/new", promo);
+    }
+
+    getPromoFromServer(){
+        return this.http.makeGetRequest("/promo");
+    }
+
+    getSinglePromoFromServer(promoId: string){
+        return this.http.makeGetRequest("/promo/" + promoId);
+    }
+
     getPromoCode(promoCode: string){
-        const promo: Promo = new Promo(promoCode, 0);
+        const promo: Promo = new Promo("default-id", promoCode, 0);
         return this.http.makePostRequest("/promo", promo)
         
+    }
+
+    updatePromo(promo: Promo, id: string){
+        return this.http.makePutRequest("/promo/" + id, promo);
+    }
+
+    deletePromo(promoCode: string){
+        return this.http.makeDeleteRequest("/promo/"+ promoCode);
+
     }
     
     returnDiscount(){

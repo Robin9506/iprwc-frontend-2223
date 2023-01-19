@@ -18,6 +18,8 @@ import { ProductSingleComponent } from './product/product-single/product-single.
 import { CustomerPortalComponent } from './customer-portal/customer-portal.component';
 import { CustomerOrdersComponent } from './customer-portal/customer-orders/customer-orders.component';
 import { CheckoutComponent } from './cart/checkout/checkout.component';
+import { AdminPromoEditComponent } from './admin-portal/admin-promos/admin-promo-edit/admin-promo-edit.component';
+import { AdminAccountEditComponent } from './admin-portal/admin-accounts/admin-account-edit/admin-account-edit.component';
 
 
 const routes: Routes = [
@@ -36,8 +38,10 @@ const routes: Routes = [
   ]},
   { path: 'product-add', component: AdminProductAddComponent},
   { path: 'product-edit/:id', component: AdminProductEditComponent},
+  { path: 'promo-edit/:id', component: AdminPromoEditComponent},
+  { path: 'account-edit/:id', component: AdminAccountEditComponent},
   { path: 'admin', component: AdminPortalComponent, children: [
-    {path: '', component: AdminProductsComponent},
+    {path: '', component: AdminAccountsComponent},
     {path: 'accounts', component: AdminAccountsComponent},
     {path: 'products', component: AdminProductsComponent},
     {path: 'promos', component: AdminPromosComponent},

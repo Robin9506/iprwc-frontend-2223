@@ -11,7 +11,11 @@ import { RunningModule } from './header/running.module';
 import { AuthModule } from './login/auth.module';
 import { AdminPortalModule } from './admin-portal/admin-portal.module';
 import { CustomerPortalModule } from './customer-portal/customer-portal.module';
+import { JwtModule } from '@auth0/angular-jwt';
 
+export function tokenGetter() {
+  return localStorage.getItem("token");
+}
 
 @NgModule({
   declarations: [
@@ -30,7 +34,14 @@ import { CustomerPortalModule } from './customer-portal/customer-portal.module';
     ProductModule,
     CartModule,
     RunningModule,
-    AuthModule
+    AuthModule,
+
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter,
+        allowedDomains: ['localhost:8080'],
+      },
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

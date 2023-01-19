@@ -1,0 +1,34 @@
+<div class="relative flex justify-center w-full bg-blue h-screen">
+    <div class="w-3/5 flex justify-center items-center">
+        <dl class="text-center text-ipNight font-bold"> 
+            <dt>Code</dt>
+            <dd *ngIf="updatedCode !== ''">{{updatedCode}}</dd>
+            <dd *ngIf="updatedCode === ''">Empty</dd>
+            <dt>Discount</dt>
+            <dd>{{updatedDiscount}}</dd>
+        </dl>
+    </div>
+    
+<div class="w-3/6 h-[111vh] bg-ipRed-100">
+    <h1 class="mt-8 flex justify-center items-center text-white font-bold">Edit Promo</h1>
+    <div class="mt-20 h-4/5 w-full flex justify-center">          
+        <form #addForm="ngForm">
+            <div class="w-96">
+                <label class="label">Code</label>
+                <div class="inputField">
+                    <input class="addInput" type="text" name="promoCode" [(ngModel)]="updatedCode">
+                </div>
+                <label class="label">Discount</label>
+                <div class="inputField">
+                    <input class="addInput" min="0" max="500" type="number" name="discount" [(ngModel)]="updatedDiscount">
+                </div>
+                <div class="flex justify-between items-center">
+                    <div class="submitButton mt-24" (click)="editPromo(id)">
+                        <button  type="submit" >Submit</button>
+                    </div>
+                </div>
+            </div>                
+        </form>
+    </div>
+</div>
+</div>

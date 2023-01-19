@@ -1,0 +1,57 @@
+<div class="relative flex justify-center w-full bg-blue h-screen">
+    <div class="w-3/5  mt-48">
+        <dl class="text-center text-ipNight font-bold"> 
+            <dt>Username</dt>
+            <dd>{{username}}</dd>
+            <dt>Password</dt>
+            <dd>{{password}}</dd>
+            <dt>Role</dt>
+            <dd>{{role}}</dd>
+            <dt>Address</dt>
+            <dd>{{address}}</dd>
+            <dt>City</dt>
+            <dd>{{city}}</dd>
+            <dt>Country</dt>
+            <dd>{{country}}</dd>
+        </dl>
+    </div>
+    <div class="w-2/5 h-[111vh] bg-ipRed-100">
+        <h1 class="mt-8">Edit Account</h1>
+        <h1>({{id}})</h1>
+        <div class="mt-2 h-4/5 w-full flex items-center justify-center">
+            
+            <form #editForm="ngForm">
+                <div class="w-96">
+                    <div class="inputField">
+                        <label class="label">Username</label>
+                        <input class="editInput" type="text" name="username" [(ngModel)]="username">
+                    </div>
+                    <div class="inputField">
+                        <label class="label">Password</label>
+                        <input class="editInput" type="text" name="password" [(ngModel)]="password">
+                    </div>
+                    <div class="inputField">
+                        <label class="label">Role</label>
+                        <input  class="editInput" type="text" name="role" [(ngModel)]="role">
+                    </div>
+                    <div class="inputField">
+                        <label class="label">Address</label>
+                        <input class="editInput" type="text" name="address" [(ngModel)]="address">
+                    </div>
+                    <div class="inputField">
+                        <label class="label">City</label>
+                        <input class="editInput" type="text" name="city" [(ngModel)]="city">
+                    </div>
+                    <div class="inputField">
+                        <label class="label">Country</label>
+                        <input class="editInput" type="text"  name="country" [(ngModel)]="country">
+                    </div>
+                    <div class="submitButton mt-24 mb-6" (click)="editAccount(id)">
+                        <button type="submit" >Submit</button>
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+</div>

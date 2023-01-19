@@ -29,10 +29,11 @@ export class LoginComponent implements OnInit {
 
     this.authService.loginUser(credentials).pipe(delay(750))
     .subscribe({
-      next: (account) => {
-        if(account !== null){
+      next: (token) => {
+        console.log(token)
+        if(token !== null){
           this.authService.isLoggedIn = true;
-          localStorage.setItem('accountId', account.account_id);
+          localStorage.setItem('token', token.tokenValue);
         }
       },
       complete: () =>{

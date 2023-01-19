@@ -12,6 +12,8 @@ import { AdminProductAddComponent } from "./admin-products/admin-product-add/adm
 import { AdminProductEditComponent } from "./admin-products/admin-product-edit/admin-product-edit.component";
 import { AdminProductsComponent } from "./admin-products/admin-products.component";
 import { AdminPromosComponent } from "./admin-promos/admin-promos.component";
+import { AdminPromoEditComponent } from './admin-promos/admin-promo-edit/admin-promo-edit.component';
+import { AdminAccountEditComponent } from './admin-accounts/admin-account-edit/admin-account-edit.component';
 
 @NgModule({
     declarations: [    
@@ -24,6 +26,8 @@ import { AdminPromosComponent } from "./admin-promos/admin-promos.component";
         AdminProductAddComponent,
         AdminOrdersComponent,
         ModalComponent,
+        AdminPromoEditComponent,
+        AdminAccountEditComponent,
 
     ],
     imports: [
